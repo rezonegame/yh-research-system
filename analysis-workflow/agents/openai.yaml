@@ -1,0 +1,6 @@
+interface:
+  display_name: "Analysis Workflow"
+  short_description: "Data analysis, statistics, and reporting"
+  default_prompt: "Use $analysis-workflow to plan and execute a reproducible data analysis with appropriate statistical reporting."
+policy:
+  allow_implicit_invocation: true

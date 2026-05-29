@@ -1,0 +1,6 @@
+interface:
+  display_name: "Evaluation Workflow"
+  short_description: "Critique research, papers, slides, and QA"
+  default_prompt: "Use $evaluation-workflow to review this artifact for rigor, risks, defects, and concrete improvements."
+policy:
+  allow_implicit_invocation: true

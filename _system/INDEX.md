@@ -1,0 +1,40 @@
+# Skills System Index
+
+## Active Entrypoints
+
+- `research-workflow`
+- `analysis-workflow`
+- `evaluation-workflow`
+- `skill-factory`
+- `darwin-skill`
+- `perspective-library`
+- `lecture-slides`
+
+## Module Containers
+
+- `research-workflow/modules`: former research, literature, hypothesis, publication, and database skills.
+- `analysis-workflow/modules`: former analysis, statistics, and R review skills.
+- `evaluation-workflow/modules`: former review, QA, proofreading, rigor, and audit skills.
+- `lecture-slides/modules`: former Beamer, Quarto, TikZ, bibliography, and deployment skills.
+
+## Archives
+
+- `_archive/deprecated`: superseded generators and old entrypoints.
+- `_archive/deprecated/perspectives`: retired person/style perspectives.
+- `_archive/examples`: examples that should not act as active triggers.
+- `_archive/legacy-skills`: useful old utility skills that are not part of the research core.
+
+## Update Rules
+
+When a new skill is created:
+
+1. Add it to this index.
+2. Add a `test-prompts.json`.
+3. Keep all scripts, templates, and references inside its own directory unless they are truly shared.
+4. If it is a person perspective, also update `perspective-library/INDEX.md`.
+
+When a perspective is retired:
+
+1. Move it to `_archive/deprecated/perspectives/`.
+2. Remove its row from `perspective-library/INDEX.md`.
+3. Verify the active router no longer points to it.

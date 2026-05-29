@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "prompt": "评估 research-workflow 这个 skill，但不要修改文件",
+    "expected": "Uses single mode, reads test prompts, scores with the 9-dimension rubric, and writes a non-mutating assessment."
+  },
+  {
+    "id": 2,
+    "prompt": "优化所有 active skills",
+    "expected": "Uses all-active mode, excludes archive/system/shared paths, evaluates before editing, and checkpoints before each skill optimization."
+  },
+  {
+    "id": 3,
+    "prompt": "达尔文，帮我把人物视角库进化一下",
+    "expected": "Uses category mode for perspective-library, evaluates the router by default, and only evaluates individual perspectives if explicitly requested."
+  }
+]

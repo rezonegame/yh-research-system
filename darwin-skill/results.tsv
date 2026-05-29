@@ -1,0 +1,28 @@
+timestamp	commit	skill	old_score	new_score	status	dimension	note	eval_mode
+2026-05-29T11:19:55+08:00	no-git	research-workflow		88	baseline	all-active	Valid active entrypoint; concise workflow; modules preserved; could add stronger failure/checkpoint guidance.	evaluation-only
+2026-05-29T11:19:55+08:00	no-git	analysis-workflow		87	baseline	all-active	Valid active entrypoint; good statistical routing; could link more explicitly to diagnostics and module selection.	evaluation-only
+2026-05-29T11:19:55+08:00	no-git	evaluation-workflow		86	baseline	all-active	Valid active entrypoint; strong review posture; resource/rubric integration can be made more explicit.	evaluation-only
+2026-05-29T11:19:55+08:00	no-git	skill-factory		90	baseline	all-active	Valid active entrypoint; strong production and retirement rules; best lifecycle coverage among active skills.	evaluation-only
+2026-05-29T11:19:55+08:00	no-git	darwin-skill		89	baseline	all-active	Valid active entrypoint; clear self-evolution protocol; needs implementation helpers for scoring automation.	evaluation-only
+2026-05-29T11:19:55+08:00	no-git	perspective-library		84	baseline	all-active	Valid router; index coverage is good; individual perspectives have validation/test-prompt inconsistencies.	evaluation-only
+2026-05-29T11:19:55+08:00	no-git	lecture-slides		86	baseline	all-active	Valid active entrypoint; concise delivery workflow; could better encode compile/QA failure modes.	evaluation-only
+2026-05-29T11:19:55+08:00	no-git	aleksandr-vlasov-perspective		78	baseline	perspective-category	BOM causes quick_validate frontmatter failure; no test-prompts; otherwise strong domain coverage.	evaluation-only
+2026-05-29T11:19:55+08:00	no-git	andrej-karpathy-perspective		84	baseline	perspective-category	Valid frontmatter and rich workflow; long body near context budget; no local test-prompts.	evaluation-only
+2026-05-29T11:19:55+08:00	no-git	cui-kai-perspective		79	baseline	perspective-category	BOM causes quick_validate frontmatter failure; concise and useful but lacks test-prompts.	evaluation-only
+2026-05-29T11:19:55+08:00	no-git	elon-musk-perspective		84	baseline	perspective-category	Valid and complete perspective; no local test-prompts; could split examples into references.	evaluation-only
+2026-05-29T11:19:55+08:00	no-git	feynman-perspective		83	baseline	perspective-category	Valid and strong; long body and no local test-prompts reduce forward-test readiness.	evaluation-only
+2026-05-29T11:19:55+08:00	no-git	ilya-sutskever-perspective		84	baseline	perspective-category	Valid; good references; no local test-prompts; acceptable length.	evaluation-only
+2026-05-29T11:19:55+08:00	no-git	jan-gehl-perspective		78	baseline	perspective-category	BOM causes quick_validate frontmatter failure; no test-prompts; otherwise useful urban design lens.	evaluation-only
+2026-05-29T11:19:55+08:00	no-git	kakei-yusuke-perspective		79	baseline	perspective-category	BOM causes quick_validate frontmatter failure; concise; no test-prompts.	evaluation-only
+2026-05-29T11:19:55+08:00	no-git	mrbeast-perspective		83	baseline	perspective-category	Valid and operational; no local test-prompts; scripts/references improve resource score.	evaluation-only
+2026-05-29T11:19:55+08:00	no-git	munger-perspective		82	baseline	perspective-category	Valid and strong; long body and no local test-prompts.	evaluation-only
+2026-05-29T11:19:55+08:00	no-git	naval-perspective		82	baseline	perspective-category	Valid and strong; long body and no local test-prompts.	evaluation-only
+2026-05-29T11:19:55+08:00	no-git	paul-graham-perspective		84	baseline	perspective-category	Valid; solid length and trigger clarity; no local test-prompts.	evaluation-only
+2026-05-29T11:19:55+08:00	no-git	ryo-yamazaki-perspective		78	baseline	perspective-category	BOM causes quick_validate frontmatter failure; no test-prompts; otherwise strong community design lens.	evaluation-only
+2026-05-29T11:19:55+08:00	no-git	steve-jobs-perspective		84	baseline	perspective-category	Valid and complete; no local test-prompts.	evaluation-only
+2026-05-29T11:19:55+08:00	no-git	sun-yuchen-perspective		75	baseline	perspective-category	BOM causes quick_validate failure and body is 488 lines; highest context-bloat risk; no test-prompts.	evaluation-only
+2026-05-29T11:19:55+08:00	no-git	taleb-perspective		82	baseline	perspective-category	Valid and strong; long body and no local test-prompts.	evaluation-only
+2026-05-29T11:19:55+08:00	no-git	trump-perspective		81	baseline	perspective-category	Valid but long; cleaned references now link; no local test-prompts.	evaluation-only
+2026-05-29T11:19:55+08:00	no-git	x-mastery-mentor		84	baseline	perspective-category	Valid, concise, resource-backed; no local test-prompts.	evaluation-only
+2026-05-29T11:19:55+08:00	no-git	zhang-yiming-perspective		82	baseline	perspective-category	Valid but long; no local test-prompts.	evaluation-only
+2026-05-29T11:19:55+08:00	no-git	zhangxuefeng-perspective		84	baseline	perspective-category	Valid and concise enough; no local test-prompts.	evaluation-only

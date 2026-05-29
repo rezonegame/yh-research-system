@@ -1,0 +1,13 @@
+[
+  {
+    "id": 1,
+    "prompt": "请评价这篇论文的研究设计是否严谨",
+    "expected": "Uses scientific rigor criteria, identifies bias/confounding/measurement risks, and prioritizes findings."
+  },
+  {
+    "id": 2,
+    "prompt": "帮我审查这套课件有没有视觉和教学问题",
+    "expected": "Routes to slide QA, visual audit, pedagogy review, and proofreading criteria."
+  }
+]
+

@@ -1,0 +1,13 @@
+[
+  {
+    "id": 1,
+    "prompt": "把这套Beamer课件转成Quarto并检查图表",
+    "expected": "Uses conversion, TikZ extraction, bibliography, and QA modules."
+  },
+  {
+    "id": 2,
+    "prompt": "编译这份LaTeX讲义并修复引用问题",
+    "expected": "Runs compile workflow and bibliography validation."
+  }
+]
+

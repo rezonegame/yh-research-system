@@ -1,0 +1,6 @@
+interface:
+  display_name: "Perspective Library"
+  short_description: "Route thinker and style perspectives"
+  default_prompt: "Use $perspective-library to route this request to the right person or thinking-style perspective."
+policy:
+  allow_implicit_invocation: true

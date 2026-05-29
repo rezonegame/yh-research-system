@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "prompt": "用费曼视角帮我看看这个解释是不是只是在背概念",
+    "expected": "Matches Feynman aliases and loads feynman-perspective."
+  },
+  {
+    "id": 2,
+    "prompt": "我想找一个能帮助城市更新评审的视角",
+    "expected": "Recommends relevant urban/design perspectives from INDEX.md."
+  },
+  {
+    "id": 3,
+    "prompt": "我不需要费曼视角了，帮我停用它",
+    "expected": "Routes to skill-factory and follows the perspective retirement protocol instead of deleting directly."
+  }
+]

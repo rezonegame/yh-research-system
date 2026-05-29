@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "prompt": "把我刚才这个研究流程沉淀成一个skill",
+    "expected": "Classifies the skill, checks duplicates, creates a self-contained skill under .claude/skills, and updates indexes."
+  },
+  {
+    "id": 2,
+    "prompt": "蒸馏一个费曼视角skill",
+    "expected": "Routes person perspective output to perspective-library/[person-name]-perspective and updates the perspective index."
+  },
+  {
+    "id": 3,
+    "prompt": "我不想再用某个人物视角了，请归档它",
+    "expected": "Moves the perspective to _archive/deprecated/perspectives, updates perspective-library/INDEX.md, and validates the active router."
+  }
+]

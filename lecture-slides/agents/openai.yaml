@@ -1,0 +1,6 @@
+interface:
+  display_name: "Lecture Slides"
+  short_description: "Build, convert, audit, and deploy slides"
+  default_prompt: "Use $lecture-slides to create, compile, convert, audit, or deploy this lecture slide material."
+policy:
+  allow_implicit_invocation: true

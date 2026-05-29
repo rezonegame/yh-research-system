@@ -1,0 +1,13 @@
+[
+  {
+    "id": 1,
+    "prompt": "帮我检查这个R脚本并说明回归结果是否可靠",
+    "expected": "Routes to R review and statistical diagnostics before giving conclusions."
+  },
+  {
+    "id": 2,
+    "prompt": "我需要做功效分析并按APA格式汇报结果",
+    "expected": "Identifies design, effect size, alpha/power assumptions, and reporting format."
+  }
+]
+

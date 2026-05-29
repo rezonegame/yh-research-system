@@ -1,0 +1,6 @@
+interface:
+  display_name: "Research Workflow"
+  short_description: "Research questions, literature, and study design"
+  default_prompt: "Use $research-workflow to structure this research request into questions, evidence search, synthesis, and next steps."
+policy:
+  allow_implicit_invocation: true

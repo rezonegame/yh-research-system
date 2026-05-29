@@ -1,0 +1,13 @@
+[
+  {
+    "id": 1,
+    "prompt": "帮我围绕桌游教育做一个系统文献综述框架",
+    "expected": "Classifies the task as literature synthesis, proposes databases/search strings/inclusion criteria, and identifies deliverables."
+  },
+  {
+    "id": 2,
+    "prompt": "我有一个研究主题但不知道怎么提出假设",
+    "expected": "Moves through intake, constructs research questions, testable hypotheses, and empirical strategy."
+  }
+]
+

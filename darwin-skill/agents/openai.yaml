@@ -1,0 +1,6 @@
+interface:
+  display_name: "Darwin Skill"
+  short_description: "Evaluate and improve local skills"
+  default_prompt: "Use $darwin-skill to evaluate or optimize one local skill with test prompts, scoring, and rollback."
+policy:
+  allow_implicit_invocation: true
