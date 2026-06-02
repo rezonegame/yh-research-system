@@ -12,6 +12,8 @@ Perspective skill:
 
 ```text
 .claude/skills/perspective-library/[person-name]-perspective/SKILL.md
+.claude/skills/perspective-library/[person-name]-perspective/test-prompts.json
+.claude/skills/perspective-library/[person-name]-perspective/references/
 ```
 
 Retired perspective skill:
@@ -25,6 +27,12 @@ Darwin logs:
 ```text
 .claude/skills/darwin-skill/results.tsv
 .claude/skills/darwin-skill/results/cards/
+```
+
+Perspective extraction framework:
+
+```text
+.claude/skills/perspective-library/references/extraction-framework.md
 ```
 
 ## Forbidden Outputs

@@ -2,16 +2,61 @@
   {
     "id": 1,
     "prompt": "把我刚才这个研究流程沉淀成一个skill",
-    "expected": "Classifies the skill, checks duplicates, creates a self-contained skill under .claude/skills, and updates indexes."
+    "expected": "Classifies the skill, checks duplicates, outputs an implementation plan, waits for confirmation before writing, creates a self-contained skill under .claude/skills, updates indexes, validates, and asks darwin-skill to evaluate it."
   },
   {
     "id": 2,
     "prompt": "蒸馏一个费曼视角skill",
-    "expected": "Routes person perspective output to perspective-library/[person-name]-perspective and updates the perspective index."
+    "expected": "Routes person perspective output to perspective-library/[person-name]-perspective, reads perspective-library/references/extraction-framework.md, defaults to publish-ready, plans six research lanes, stronger bibliography, triple validation, public replay, unknown-topic and edge-case tests, fresh-context forward-test, waits for confirmation, and asks darwin-skill to evaluate it."
   },
   {
     "id": 3,
     "prompt": "我不想再用某个人物视角了，请归档它",
-    "expected": "Moves the perspective to _archive/deprecated/perspectives, updates perspective-library/INDEX.md, and validates the active router."
+    "expected": "Matches the active perspective, shows the source directory, archive target, index row, and aliases/triggers to remove, waits for confirmation, moves the perspective to _archive/deprecated/perspectives, updates perspective-library/INDEX.md, and validates the active router."
+  },
+  {
+    "id": 4,
+    "prompt": "创建一个新的研究方法skill，先告诉我你准备改哪些文件",
+    "expected": "Outputs a plan naming the target skill directory, index files, test-prompts.json, and validation steps; it does not write files until the user confirms."
+  },
+  {
+    "id": 5,
+    "prompt": "删除张雪峰视角，不要再让任何触发词命中它",
+    "expected": "Treats deletion as archive retirement, requires second confirmation, removes the whole zhangxuefeng-perspective row from perspective-library/INDEX.md, and verifies the retired directory name and aliases no longer route from the active index."
+  },
+  {
+    "id": 6,
+    "prompt": "归档一个视角，但_archive里已经有同名目录",
+    "expected": "Stops before moving or overwriting, reports that the archive target already exists, and asks whether to merge manually, rename the retirement target, restore the archived copy, or cancel."
+  },
+  {
+    "id": 7,
+    "prompt": "创建一个苏格拉底视角，要求深度版",
+    "expected": "Defaults to publish-ready person perspective workflow, plans six parallel research lanes, creates references/research/01-writings.md through 06-timeline.md, builds stronger bibliography, uses triple validation for mental models, and runs public replay, unknown-topic uncertainty, edge-case, fresh-context forward-tests, and Darwin >= 90 before publish-ready status."
+  },
+  {
+    "id": 8,
+    "prompt": "先快速做一个某某视角草稿，不做深度调研",
+    "expected": "Allows only lightweight draft status after confirmation, marks the perspective as draft, does not claim it is stable, and records that six-lane extraction and replay validation are still missing."
+  },
+  {
+    "id": 11,
+    "prompt": "创建一个人物视角，不特别说明质量等级",
+    "expected": "Defaults to publish-ready rather than stable, and includes six-lane extraction, strong bibliography, triple validation, replay tests, edge-case tests, fresh-context forward-test, and Darwin score >= 90 in the plan."
+  },
+  {
+    "id": 12,
+    "prompt": "这个人物视角已经stable了，直接标publish-ready吧",
+    "expected": "Refuses to mark publish-ready unless stronger bibliography, edge-case tests, fresh-context validation, and Darwin score >= 90 are present; otherwise keeps it stable and lists missing gates."
+  },
+  {
+    "id": 9,
+    "prompt": "把这个名人名言直接做成一个心智模型",
+    "expected": "Refuses to promote a single quote into a mental model until it passes cross-domain recurrence, predictive power, and exclusivity; stores it only as a note or evidence candidate if useful."
+  },
+  {
+    "id": 10,
+    "prompt": "同时退休苏格拉底和孙宇晨两个视角",
+    "expected": "Shows a confirmation summary for both perspectives, then processes retirements sequentially rather than in parallel, verifies each source directory is gone, each archive directory exists, and all related index rows and aliases are removed."
   }
 ]

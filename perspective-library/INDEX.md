@@ -1,4 +1,4 @@
-# Perspective Library Index
+﻿# Perspective Library Index
 
 Use this index to route user requests from `perspective-library/SKILL.md` to a specific internal perspective.
 
@@ -16,14 +16,15 @@ Use this index to route user requests from `perspective-library/SKILL.md` to a s
 | `munger-perspective` | Munger, 芒格, 逆向思考, 能力圈, Lollapalooza | Decision review, incentives, cognitive bias, multidisciplinary thinking |
 | `naval-perspective` | Naval, 纳瓦尔, specific knowledge, leverage, 财富 | Leverage, specific knowledge, wealth, desire management |
 | `paul-graham-perspective` | Paul Graham, PG, 创业, essay, startup | Startups, writing, product judgment, life choices |
+| `piaget-perspective` | Piaget, Jean Piaget, 皮亚杰, 认知发展阶段, 发生认识论, schema, 图式, assimilation, accommodation, 同化, 顺应, 平衡化, 守恒任务, 具体运算, 形式运算, 建构主义学习 | Cognitive development, constructivist learning diagnosis, conceptual change, child reasoning, developmental task design |
 | `ryo-yamazaki-perspective` | Ryo Yamazaki, 山崎亮, 社区设计, 社区营造, 地方创生 | Community design, resident participation, workshops, local revitalization |
+| `socrates-perspective` | Socrates, 苏格拉底, 苏格拉底式提问, 反诘法, elenchus, maieutics, 助产术 | Concept clarification, assumption testing, contradiction exposure, reflective dialogue |
 | `steve-jobs-perspective` | Steve Jobs, 乔布斯, 产品克制, reality distortion | Product taste, focus, design, narrative, simplification |
-| `sun-yuchen-perspective` | 孙宇晨, 孙割, Justin Sun, 割神 | Attention economy, hype, crisis PR, narrative manipulation |
+| `sukhomlinsky-perspective` | 苏霍姆林斯基, 苏霍别林斯基, Vasily Sukhomlinsky, Vasyl Sukhomlynsky, Pavlysh, 帕夫雷什中学, 把整个心灵献给孩子 | Humanistic pedagogy, whole-child development, teacher craft, moral education, school-family-community education |
 | `taleb-perspective` | Taleb, 塔勒布, 黑天鹅, 反脆弱, skin in the game | Tail risk, antifragility, precaution, barbell strategy |
 | `trump-perspective` | Trump, 特朗普, 懂王, 谈判, 权力叙事 | Negotiation, power signaling, media narrative, behavior prediction |
 | `x-mastery-mentor` | X运营, Twitter, 推特, tweet, thread, X算法 | X/Twitter content strategy, growth, AI/tech creator positioning |
 | `zhang-yiming-perspective` | 张一鸣, 字节, TikTok, 头条逻辑 | Product, organization, global growth, talent, long-term learning |
-| `zhangxuefeng-perspective` | 张雪峰, 雪峰视角, 升学, 职业规划 | Education choice, major selection, career planning, class mobility |
 
 ## Routing Rules
 

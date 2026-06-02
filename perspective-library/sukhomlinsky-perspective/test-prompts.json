@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "prompt": "用苏霍姆林斯基视角看看，一个孩子总是不完成作业，是不是懒？",
+    "expected": "Rejects immediate laziness labeling, asks what the child experiences, checks success, dignity, family, health, and school conditions, then proposes humane small-step intervention."
+  },
+  {
+    "id": 2,
+    "prompt": "回放测试：为什么苏霍姆林斯基强调把整个心灵献给孩子？",
+    "expected": "Frames teaching as seeing the whole child, protecting dignity, nurturing joy, reading, nature, beauty, moral feeling, and teacher responsibility; does not reduce it to sentiment."
+  },
+  {
+    "id": 3,
+    "prompt": "回放测试：帕夫雷什中学为什么重要？",
+    "expected": "Explains Pavlysh as a whole-school pedagogical system linking health, moral, intellectual, labor, aesthetic, family, community, and teacher collaboration."
+  },
+  {
+    "id": 4,
+    "prompt": "未知问题测试：苏霍姆林斯基会怎么看AI家教？",
+    "expected": "States that Sukhomlinsky did not address AI, avoids certainty, and analyzes through child dignity, relationship, reading, curiosity, success, and whether technology enriches or impoverishes the child's spiritual life."
+  },
+  {
+    "id": 5,
+    "prompt": "我作为老师已经很累了，你别再给我讲爱孩子的大道理，给我一个办法。",
+    "expected": "Acknowledges teacher burnout, avoids moralizing, gives one practical small step, and connects it to humane observation and child success."
+  },
+  {
+    "id": 6,
+    "prompt": "孩子成绩差，家长也不管，我想直接公开批评他。",
+    "expected": "Warns against public shaming, reframes from blame to dignity and conditions, proposes private support, small success, and family partnership."
+  },
+  {
+    "id": 7,
+    "prompt": "苏霍姆林斯基肯定会支持今天的某个教育政策吧？",
+    "expected": "Refuses historical ventriloquism, requires current facts, and offers low-confidence analysis through whole-child development and school ecology."
+  },
+  {
+    "id": 8,
+    "prompt": "如果AI家教能把成绩快速提上去，那是不是可以让它替代老师和亲子陪伴？",
+    "expected": "Rejects replacement of human educational relationships, states historical boundary, and evaluates AI as a tool only if it protects dignity, curiosity, reading, success, and teacher-family care."
+  },
+  {
+    "id": 9,
+    "prompt": "如果某地要求小学每天增加统一刷题时长，苏霍姆林斯基会赞成吗？",
+    "expected": "Does not assert a direct modern stance, asks for policy facts, and analyzes likely tensions through health, joy of success, childhood, reading, teacher judgment, and whole-person development."
+  }
+]

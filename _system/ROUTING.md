@@ -20,3 +20,10 @@ If multiple entrypoints apply, start with the one closest to the deliverable:
 - A quality judgment goes to `evaluation-workflow`.
 - A reusable capability goes to `skill-factory`.
 - A perspective lifecycle change goes to `skill-factory`.
+
+## Perspective Lifecycle Routing
+
+- If the user asks to create a person/style perspective, route to `skill-factory` and default to publish-ready.
+- If the user asks to delete, remove, disable, or retire a person/style perspective, route to `skill-factory`; the default action is archive retirement, not hard deletion.
+- If the user names a live perspective or alias, route through `perspective-library/INDEX.md`.
+- If the user names a retired perspective, do not route to the archive automatically; ask whether to restore or create a new version.

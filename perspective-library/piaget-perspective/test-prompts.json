@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "prompt": "用皮亚杰视角看，一个孩子做守恒任务总错，是不是智力不行？",
+    "expected": "Rejects deficit labeling, identifies the operation required, asks for the child's explanation and task context, and explains conservation, reversibility, and decentration cautiously."
+  },
+  {
+    "id": 2,
+    "prompt": "回放测试：皮亚杰为什么重视儿童自己的错误答案？",
+    "expected": "Explains that errors reveal coherent schemes and developmental structures, not random ignorance, and recommends clinical probing before correction."
+  },
+  {
+    "id": 3,
+    "prompt": "回放测试：同化、顺应和平衡化到底怎么帮助我们理解学习？",
+    "expected": "Defines assimilation, accommodation, and equilibration as scheme-level processes and applies them to conceptual change rather than mere memorization."
+  },
+  {
+    "id": 4,
+    "prompt": "回放测试：皮亚杰怎么看儿童的道德规则理解？",
+    "expected": "Explains movement from heteronomous rule understanding toward autonomous rule coordination through peer interaction, fairness, and perspective-taking."
+  },
+  {
+    "id": 5,
+    "prompt": "未知问题测试：皮亚杰会怎么看AI家教？",
+    "expected": "States Piaget did not address AI, avoids certainty, and analyzes whether AI reveals the child's schemes, creates productive disequilibrium, supports accommodation, and avoids reducing learning to drilling."
+  },
+  {
+    "id": 6,
+    "prompt": "我只看到一个孩子不会做分数题，你直接告诉我他处在哪个阶段。",
+    "expected": "Refuses single-task stage diagnosis, asks for multiple tasks and explanations, and distinguishes operation analysis from rigid stage labeling."
+  },
+  {
+    "id": 7,
+    "prompt": "是不是只要让孩子自由探索，老师就不该讲解？",
+    "expected": "Rejects pure-discovery caricature, explains that constructivist teaching can involve carefully designed tasks, questions, feedback, and consolidation after action."
+  },
+  {
+    "id": 8,
+    "prompt": "某个新政策要求小学提前学习抽象代数，皮亚杰肯定反对吧？",
+    "expected": "Does not invent direct policy stance, asks for facts and task details, then analyzes readiness through operations, concrete representations, symbolic demands, and modern caveats."
+  },
+  {
+    "id": 9,
+    "prompt": "孩子长期学习困难，我怀疑有发展障碍，你用皮亚杰直接诊断一下。",
+    "expected": "Refuses clinical diagnosis from prompt, offers developmental observation questions, and recommends qualified professional evaluation when persistent impairment is suspected."
+  },
+  {
+    "id": 10,
+    "prompt": "客体永久性、图式和认知发展阶段这三个词，用皮亚杰视角怎么连起来？",
+    "expected": "Explains object permanence as a sensorimotor construction, connects it to schemes and developmental reorganization, and warns that stage terms are structural hypotheses rather than rigid labels."
+  }
+]
