@@ -47,8 +47,8 @@ Follow this order for every production request:
 6. Create or update a self-contained directory with `SKILL.md`, `references/`, `scripts/`, `templates/`, and `test-prompts.json` as needed.
 7. For person perspectives, execute the required extraction depth before assigning status:
    - Lightweight drafts may be created only when the user explicitly asks for a quick draft or confirms a draft status.
-   - Stable perspectives must include six research files under `references/research/`, triple-validated mental models, and replay tests.
-   - Publish-ready perspectives must satisfy stable requirements plus stronger bibliography, independent forward-test or equivalent fresh-context validation, edge-case tests, and Darwin score >= 90.
+   - Stable perspectives must include six research files under `references/research/`, triple-validated mental models, default `reasoning_only` behavior, triggers / non-triggers, and replay tests.
+   - Publish-ready perspectives must satisfy stable requirements plus stronger bibliography, independent forward-test or equivalent fresh-context validation, edge-case tests, style-overreach tests, and Darwin score >= 90.
 8. For person perspectives, update `perspective-library/INDEX.md` with the active directory name, aliases/triggers, and best-use description.
 9. For all new active entrypoints, update `_system/INDEX.md` and `_system/ROUTING.md` when routing changes.
 10. Validate frontmatter, JSON, index references, duplicate trigger coverage, extraction evidence, and quality gate status.
@@ -63,13 +63,23 @@ Mandatory publish-ready workflow:
 1. Run six research lanes in parallel: writings, conversations, expression DNA, external views, decisions, and timeline.
 2. Save each lane under `references/research/` as `01-writings.md` through `06-timeline.md`.
 3. Promote a claim into a mental model only when it passes all triple-validation tests: cross-domain recurrence, predictive power, and exclusivity.
-4. Build `SKILL.md` from validated material: 3-7 mental models, 5-10 decision heuristics, expression DNA, values and anti-patterns, honest boundaries, failure modes, and local tests.
+4. Build `SKILL.md` from validated material: exact triggers / non-triggers, default `reasoning_only` mode, 3-7 mental-model tools, 5-10 decision heuristics, optional expression DNA, values and anti-patterns, honest boundaries, failure modes with fallback behavior, and local tests.
 5. Build a stronger bibliography in the research references: include primary sources, external criticism, and modern secondary sources when available.
-6. Validate with three public replay questions, one unknown-topic uncertainty test, and at least two edge-case prompts.
+6. Validate with three public replay questions, one unknown-topic uncertainty test, one adjacent-person confusion test, one reasoning-only test, one style-overreach test, and at least two edge-case prompts.
 7. Run independent forward-testing with a fresh context when available; otherwise record why it could not be done and keep the status below publish-ready.
 8. Run `darwin-skill` and record the result. Publish-ready requires Darwin score >= 90.
 
 If the user requests a person perspective and does not explicitly choose stable or lightweight draft status, default to publish-ready. Do not call a draft stable, and do not call a stable perspective publish-ready without forward-testing or an explicit recorded substitute.
+
+### Person Perspective vNext Rules
+
+For every new or upgraded person perspective, apply the detailed rules in `perspective-library/references/extraction-framework.md`. The non-negotiable summary is:
+
+- Default to `reasoning_only`; do not make style imitation the normal response mode.
+- Keep expression DNA as an optional module activated only by explicit style/voice/imitation requests.
+- Treat mental models as flexible, evidence-owned reasoning tools, not compulsory answer algorithms.
+- Generate explicit `triggers` and confusion-preventing `non_triggers` when adjacent people or concepts may route incorrectly.
+- Test against drift: identity confusion, modern-topic uncertainty, fact dependence, reasoning-only requests, style-overreach, and edge cases.
 
 ## Retire a Perspective
 
@@ -96,6 +106,9 @@ Use `_shared/scripts/retire-perspective.ps1` for repeatable retirement on Window
 | Request mixes a general workflow and person perspective | Ask the user to choose one deliverable first; do not create both in one implicit pass. |
 | Person perspective lacks six research lanes | Mark it as lightweight draft or stop; do not call it stable. |
 | Proposed mental model fails triple validation | Keep it in references as a note or limitation; do not put it in the mental-model section. |
+| Person perspective would be driven by a fixed step-by-step persona algorithm | Rewrite the section as a flexible mental-model toolbox before validation. |
+| Expression DNA starts controlling normal analysis | Move style rules into an optional expressive module and keep the default mode `reasoning_only`. |
+| Adjacent person, teacher, collaborator, or stylistic neighbor can be confused with the target | Add `non_triggers` and confusion tests before marking the perspective stable. |
 | Public replay tests fail | Repair the perspective or keep it draft; do not mark it stable or publish-ready. |
 | Publish-ready lacks forward-test or edge-case tests | Keep it stable and record the missing gate; do not mark it publish-ready. |
 | User requests delete/remove/disable for a perspective | Treat it as archive retirement, show the confirmation summary, then wait. |
@@ -121,3 +134,5 @@ Never write generated skills to `.agents/skills`, `.codex/skills`, external rese
 - Do not create a stable person perspective from general knowledge alone.
 - Do not skip `perspective-library/references/extraction-framework.md` for person perspectives.
 - Do not mark a person perspective publish-ready below Darwin 90 or without fresh-context validation.
+- Do not make style imitation the default behavior for a person perspective.
+- Do not turn mental models into a compulsory answer sequence when the evidence only supports them as reasoning tools.

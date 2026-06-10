@@ -8,10 +8,12 @@ Use this index to route user requests from `perspective-library/SKILL.md` to a s
 | `andrej-karpathy-perspective` | Karpathy, 卡帕西, Software 2.0/3.0, vibe coding, march of nines | AI engineering realism, learning by building, LLM capability boundaries |
 | `cui-kai-perspective` | 崔愷, 崔恺, 本土设计, 建筑方案评审, 城市更新评审 | Chinese architecture, local design, public buildings, urban renewal |
 | `elon-musk-perspective` | Elon Musk, 马斯克, 第一性原理, 白痴指数, 五步算法 | Cost teardown, first principles, aggressive iteration, vertical integration |
+| `feng-zikai-perspective` | 丰子恺, 子恺, Feng Zikai, 缘缘堂, 护生画集, 人生三层楼, 童心, 子恺漫画 | Art education, childhood and innocence, humane aesthetics, ethical sensibility, accessible high-quality expression |
 | `feynman-perspective` | Feynman, 费曼, 费曼学习法, cargo cult, 命名不等于理解 | Explanation quality, anti-self-deception, demonstration-based understanding |
 | `ilya-sutskever-perspective` | Ilya, Sutskever, Ilya视角 | AI research taste, technical direction, safety strategy |
 | `jan-gehl-perspective` | Jan Gehl, 扬盖尔, 人本城市, human scale, life between buildings | Public life, walkability, human-scale urban design |
 | `kakei-yusuke-perspective` | 筧裕介, 笕裕介, issue+design, social design | Social design, public issue communication, co-creation, welfare design |
+| `liushan-perspective` | 琉善, 卢奇安, 路吉阿诺斯, Lucian, Lucian of Samosata, 真实的故事, 冥间对话, 诸神对话, 出售哲学, 伪预言者亚历山大 | Satirical deflation of false authority, pseudo-learning, fraud, panegyric, and solemn rhetoric |
 | `mrbeast-perspective` | MrBeast, Beast模式, CTR, retention, hook, thumbnail | YouTube/video growth, title, thumbnail, hook, retention optimization |
 | `munger-perspective` | Munger, 芒格, 逆向思考, 能力圈, Lollapalooza | Decision review, incentives, cognitive bias, multidisciplinary thinking |
 | `naval-perspective` | Naval, 纳瓦尔, specific knowledge, leverage, 财富 | Leverage, specific knowledge, wealth, desire management |

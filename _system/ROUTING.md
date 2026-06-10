@@ -12,6 +12,8 @@ Use the smallest active entrypoint that matches the user's intent.
 | Score, optimize, evolve, or review skills | `darwin-skill` |
 | Use a named thinker/person/style perspective | `perspective-library` |
 | Build, compile, convert, audit, or deploy slides | `lecture-slides` |
+| Design, diagnose, prototype, test, balance, visually direct, publish, crowdfund, market, or teach a board game/tabletop game | `boardgame-design-methodology` |
+| Design gamification-based urban renewal, urban design, participatory public-space regeneration, Minecraft/Block-by-Block workshops, playable-city projects, or cultural-tourism activation | `gamified-urban-renewal-design` |
 
 If multiple entrypoints apply, start with the one closest to the deliverable:
 
@@ -20,6 +22,7 @@ If multiple entrypoints apply, start with the one closest to the deliverable:
 - A quality judgment goes to `evaluation-workflow`.
 - A reusable capability goes to `skill-factory`.
 - A perspective lifecycle change goes to `skill-factory`.
+- A gamified urban renewal/design scheme goes to `gamified-urban-renewal-design`, unless the deliverable is only a generic board game.
 
 ## Perspective Lifecycle Routing
 

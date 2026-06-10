@@ -21,6 +21,7 @@ SKILLS_ROOT=.claude/skills
 - `darwin-skill`
 - `perspective-library`
 - `lecture-slides`
+- `boardgame-design-methodology`
 
 ## Default Exclusions
 
