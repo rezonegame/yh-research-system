@@ -28,7 +28,7 @@ Read `darwin.config.md` before scanning. Default active entrypoints:
 - `perspective-library`
 - `lecture-slides`
 
-Default exclusions: `_archive`, `_system`, `_shared`, `examples`, `references`, `templates`, `assets`, and `results`.
+Default exclusions: `_archive`, `_system`, `_shared`, `examples`, `references`, `templates`, `assets`, `results`, and `_evolution`.
 
 ## Modes
 
@@ -96,9 +96,20 @@ Write result cards to:
 ## Do Not
 
 - Do not scan `_archive` by default.
+- Do not scan `_evolution` directories; they contain self-play artifacts, not active skill definitions.
 - Do not silently delete, move, or rename skills.
 - Do not optimize multiple dimensions in one round.
 - Do not skip test prompts.
 - Do not let the same context both make and blindly bless a risky change.
 - Do not write results outside `.claude/skills/darwin-skill/`.
+
+## Self-Play Evolution Context
+
+If a skill directory contains `_evolution/cross-time-replay.json`, read it before evaluating. The file records:
+- Which version was selected by Cross-Time Replay
+- Per-version hard and easy probe scores
+- Key improvements in the selected version compared to v0
+- Whether human review was flagged
+
+Use this as context for dimensions 3 (failure-mode encoding), 4 (checkpoint design), and 8 (tested performance). A skill that went through self-play and showed improvement on hard probes has evidence of robustness that a single-pass skill lacks. Record the Cross-Time Replay score in the Darwin result card's notes.
 

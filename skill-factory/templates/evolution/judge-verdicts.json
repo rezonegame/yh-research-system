@@ -1,0 +1,109 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Judge Verdicts + Proposer Diagnosis",
+  "description": "Schema for the combined Judge evaluation and Proposer diagnosis output per iteration.",
+  "type": "object",
+  "required": ["iteration", "judgments", "batch_analysis", "reasoner_side_diagnosis", "challenger_side_diagnosis"],
+  "properties": {
+    "iteration": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Current iteration number."
+    },
+    "judgments": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["task_id", "verdict", "explanation", "failure_classification"],
+        "properties": {
+          "task_id": {
+            "type": "string",
+            "pattern": "^T[1-3]$"
+          },
+          "verdict": {
+            "type": "string",
+            "enum": ["PASS", "FAIL"]
+          },
+          "explanation": {
+            "type": "string",
+            "minLength": 10,
+            "description": "One-sentence explanation of the verdict."
+          },
+          "failure_classification": {
+            "type": "string",
+            "enum": ["skill_gap", "skill_ambiguity", "reasoner_error", null],
+            "description": "Null if verdict is PASS."
+          }
+        }
+      }
+    },
+    "batch_analysis": {
+      "type": "object",
+      "required": ["pass_count", "fail_count", "dominant_failure_pattern", "cross_task_insight"],
+      "properties": {
+        "pass_count": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "fail_count": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "dominant_failure_pattern": {
+          "type": ["string", "null"],
+          "description": "The most common failure pattern across the batch, or null if none."
+        },
+        "cross_task_insight": {
+          "type": "string",
+          "description": "What the batch as a whole reveals about the skill's robustness."
+        }
+      }
+    },
+    "reasoner_side_diagnosis": {
+      "type": "object",
+      "required": ["action", "target_section", "gap_description", "justification", "priority"],
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": ["add", "clarify", "merge"]
+        },
+        "target_section": {
+          "type": "string",
+          "description": "Which section of SKILL.md to modify."
+        },
+        "gap_description": {
+          "type": "string",
+          "minLength": 10,
+          "description": "What's missing or unclear in the skill."
+        },
+        "justification": {
+          "type": "string",
+          "minLength": 10,
+          "description": "Why this change, with evidence from specific task failures."
+        },
+        "priority": {
+          "type": "string",
+          "enum": ["critical", "high", "medium"]
+        }
+      }
+    },
+    "challenger_side_diagnosis": {
+      "type": "object",
+      "required": ["strategy_gap", "suggested_focus"],
+      "properties": {
+        "strategy_gap": {
+          "type": "string",
+          "description": "Why the tasks were too easy and what the Challenger should change next iteration."
+        },
+        "suggested_focus": {
+          "type": "string",
+          "description": "Which weakness category the Challenger should target next."
+        }
+      }
+    }
+  }
+}

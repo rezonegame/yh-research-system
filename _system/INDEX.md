@@ -27,7 +27,7 @@
 - `evaluation-workflow/modules`: former review, QA, proofreading, rigor, and audit skills.
 - `lecture-slides/modules`: former Beamer, Quarto, TikZ, bibliography, and deployment skills.
 - `boardgame-design-methodology/references/methodology`: complete board game design lifecycle references from inspiration and mechanisms through prototyping, art, publishing, marketing, and cases.
-- `gamified-urban-renewal-design`: complete gamification-based urban renewal, urban design, participatory planning, cultural-tourism activation, Minecraft/Block-by-Block, serious-game, and playable-city methodology.
+- `gamified-urban-renewal-design`: complete gamification-based urban renewal, urban design, participatory planning, cultural-tourism activation, lightweight local operation, resident-memory protocol, material-gap handling, Minecraft/Block-by-Block, serious-game, and playable-city methodology.
 
 ## Archives
 

@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "prompt": "我想设计一个30分钟的双人桌游，核心是卡牌驱动+工人放置，主题是城市更新。帮我做第一版设计brief和原型计划。",
+    "expected": "Routes to concept-to-prototype mode, reads broad methodology plus card and worker-placement references, captures constraints, defines core loop, smallest playable prototype, first playtest questions, and outputs a usable design brief."
+  },
+  {
+    "id": 2,
+    "prompt": "我的桌游测试者都说规则太复杂，新人教不动，但我觉得每个规则都有用。帮我诊断应该砍哪里。",
+    "expected": "Routes to design diagnosis mode, reads iteration optimization references, separates core loop from edge cases and subsystems, proposes small experiments and rule-removal tests rather than a full redesign."
+  },
+  {
+    "id": 3,
+    "prompt": "我的合作桌游里总有一个老玩家指挥所有人，其他人变成执行工具，怎么改？",
+    "expected": "Routes to cooperative mechanism references, identifies quarterback/alpha-player problem, proposes information, role, timing, communication, and responsibility design variants with targeted tests."
+  },
+  {
+    "id": 4,
+    "prompt": "我有一个卡牌+骰子的推手气游戏，某个策略胜率太高。请给我一套平衡性测试计划。",
+    "expected": "Routes to playtest and balance mode, reads dice, push-your-luck, external testing, and balance references, defines metrics, test groups, hypotheses, change log, and decision thresholds."
+  },
+  {
+    "id": 5,
+    "prompt": "我桌游机制已经稳定了，但美术方向不清楚，也不知道怎么和画师沟通。帮我整理一个美术brief。",
+    "expected": "Routes to art and production mode, reads art direction and artist collaboration references, separates functional readability, style direction, component priority, art brief, graphic design brief, copyright, revision, and handoff risks."
+  },
+  {
+    "id": 6,
+    "prompt": "帮我规划一个从稳定原型到Kickstarter众筹的路线，包含BGG和评测口碑。",
+    "expected": "Routes to publishing and marketing mode, reads Kickstarter, publishing, BGG, reviews, community, and publisher cases, assesses readiness and outputs staged roadmap with prerequisites, risks, and next actions."
+  },
+  {
+    "id": 7,
+    "prompt": "帮我做一节90分钟桌游设计课，主题是从灵感到纸笔原型。",
+    "expected": "Routes to teaching mode, reads inspiration and rapid prototyping references, defines learner output, activities, timing, examples, and assessment rubric."
+  }
+]

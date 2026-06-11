@@ -45,11 +45,30 @@ Follow this order for every production request:
 4. Output a short implementation plan that names the target directory, index files to edit, test prompts to create or update, research lanes to run, and validation steps.
 5. Stop for user confirmation before creating a new top-level skill, creating a person perspective, editing `_system/INDEX.md`, editing `perspective-library/INDEX.md`, or retiring a perspective.
 6. Create or update a self-contained directory with `SKILL.md`, `references/`, `scripts/`, `templates/`, and `test-prompts.json` as needed.
+
+### 通用技能路径（General Skills）
+
+6a. For general research skills (NOT person perspectives), capture the creation context in `references/_creation-context.md` using `templates/creation-context.md`. Include the user's original request, intent classification, scope boundaries, design decisions, and known limitations.
+6b. For general research skills, offer self-play refinement (3 iterations × 3 tasks, ~25 LLM calls). Read `references/self-play-protocol.md` for the full protocol. Stop for user confirmation before starting self-play. The user may accept, skip (go to step 9), or customize the iteration count.
+6c. If user accepts self-play, run the loop defined in `references/self-play-protocol.md`:
+   - Create `_evolution/` directory with per-iteration subdirectories.
+   - For each iteration: Challenger generates 3 adversarial tasks → Reasoner solves each → Judge+Proposer evaluates and diagnoses → Generator materializes revised SKILL.md.
+   - After all iterations: Cross-Time Replay selects the best version using Laplace-smoothed product score ρ_h · ρ_e.
+   - Present Cross-Time Replay results table to user. Stop for confirmation.
+   - If self-play yields no improvement (v0 scores highest), keep v0, record the null result, and proceed.
+   - If user rejects the selected version, offer: view diff / edit manually / re-run Cross-Time / keep v0.
+6d. For general research skills, finalize the selected (or v0) SKILL.md to the skill root directory. The `_evolution/` directory stays as an audit trail.
+
+### 人物视角路径（Person Perspectives）
+
 7. For person perspectives, execute the required extraction depth before assigning status:
    - Lightweight drafts may be created only when the user explicitly asks for a quick draft or confirms a draft status.
    - Stable perspectives must include six research files under `references/research/`, triple-validated mental models, default `reasoning_only` behavior, triggers / non-triggers, and replay tests.
    - Publish-ready perspectives must satisfy stable requirements plus stronger bibliography, independent forward-test or equivalent fresh-context validation, edge-case tests, style-overreach tests, and Darwin score >= 90.
 8. For person perspectives, update `perspective-library/INDEX.md` with the active directory name, aliases/triggers, and best-use description.
+
+### 收尾（All Skills）
+
 9. For all new active entrypoints, update `_system/INDEX.md` and `_system/ROUTING.md` when routing changes.
 10. Validate frontmatter, JSON, index references, duplicate trigger coverage, extraction evidence, and quality gate status.
 11. Ask `darwin-skill` to evaluate the new or changed skill before treating it as stable or publish-ready.
@@ -81,6 +100,50 @@ For every new or upgraded person perspective, apply the detailed rules in `persp
 - Generate explicit `triggers` and confusion-preventing `non_triggers` when adjacent people or concepts may route incorrectly.
 - Test against drift: identity confusion, modern-topic uncertainty, fact dependence, reasoning-only requests, style-overreach, and edge cases.
 
+## General Skill Self-Play Refinement
+
+General research skills (workflows, research methods, tool integrations) go through an optional self-play refinement loop after the initial scaffold is created. The full protocol, role prompts, and output schemas are in `references/self-play-protocol.md`.
+
+### When to Use
+
+Self-play is offered for **general research skills only** — NOT for person perspectives (which already have their own six-lane extraction + triple validation + replay testing pipeline).
+
+### Core Mechanism (adapted from Ctx2Skill)
+
+Five roles operate through structured prompts (not separate agents):
+
+| Role | What it does |
+|------|-------------|
+| **Challenger** | Generates 3 adversarial probing tasks per iteration, each with a binary rubric, targeting skill weaknesses |
+| **Reasoner** | Solves each task by following the current skill version exactly as written |
+| **Judge+Proposer** | Evaluates all 3 solutions (strict all-or-nothing), then diagnoses cross-task failure/success patterns |
+| **Generator** | Materializes the Proposer's diagnosis into a complete replacement SKILL.md |
+
+The loop runs N=3 iterations × M=3 tasks. Failed tasks route to Reasoner-side skill improvement; passed tasks route to Challenger-side strategy tightening. Both sides co-evolve.
+
+### Cross-Time Replay
+
+After 3 iterations, we have 4 skill versions (v0-v3). Cross-Time Replay selects the best:
+
+1. **Hard Probe Set**: The closest-to-passing failure from each iteration (3 probes)
+2. **Easy Probe Set**: The most decisive success from each iteration (3 probes)
+3. **Scoring**: Each version v is tested against all 6 probes
+   - score(v) = (hard_pass_rate + 0.1) × (easy_pass_rate + 0.1)
+   - Multiplicative form penalizes versions that sacrifice easy tasks for hard ones
+4. **Selection**: v* = argmax score(v); ties go to later version
+
+### User Checkpoints
+
+- **Before self-play**: Present plan with iteration count, task count, and estimated cost. User may accept, skip, or customize.
+- **After Cross-Time Replay**: Present score table with selected version and key improvements. User may accept, view diff, edit manually, or keep v0.
+
+### Failure Modes
+
+| Self-play yields no improvement | Keep v0, record null result in _evolution/, proceed to Darwin. |
+| All versions have 0 hard-probe passes | Flag for human review, select version with highest easy-probe score. |
+| User rejects selected version | Offer: edit manually / re-run Cross-Time / keep v0. |
+| _evolution/ already exists | Archive previous as _evolution.bak.{N} before creating new. |
+
 ## Retire a Perspective
 
 Deletion requests default to retirement by archive. Do not hard-delete perspective files.
@@ -96,6 +159,10 @@ Deletion requests default to retirement by archive. Do not hard-delete perspecti
 9. For multiple perspectives, retire them sequentially. Do not run concurrent retire commands against the same `perspective-library/INDEX.md`.
 
 Use `_shared/scripts/retire-perspective.ps1` for repeatable retirement on Windows.
+
+## Agent Compatibility
+
+The `agents/openai.yaml` file in this and other active skill directories provides a display-name and default-prompt mapping for external agent runtimes (e.g. OpenAI-compatible routers). It is maintained for cross-platform compatibility and does not affect local Claude Code skill execution. When creating a new general skill or person perspective, include an `agents/openai.yaml` stub.
 
 ## Checkpoints and Failure Modes
 
@@ -117,6 +184,11 @@ Use `_shared/scripts/retire-perspective.ps1` for repeatable retirement on Window
 | Batch retirement partially succeeds | Audit every requested perspective, then complete directory and index cleanup sequentially. |
 | `test-prompts.json` is missing or invalid | Fix or create it before Darwin evaluation; do not mark the skill stable. |
 | Darwin score is below the requested quality gate | Enter a repair loop focused on the weakest dimension before delivery. |
+| Self-play loop produces no improvement over v0 | Keep v0, record the null result in `_evolution/`, and proceed to Darwin evaluation. |
+| Cross-Time Replay selects a version with 0 hard-probe passes | Flag the skill for human review, present the easy-probe score, and ask the user to decide. |
+| User rejects the self-play selected version | Offer: view structured diff, edit manually and re-run Cross-Time, or keep v0. |
+| `_evolution/` directory already exists (re-running self-play) | Archive previous `_evolution/` as `_evolution.bak.{N}` before starting new run. |
+| Self-play offered for a person perspective | Skip self-play; person perspectives use their own extraction pipeline. Do not offer self-play for perspectives. |
 
 ## Forbidden Outputs
 
@@ -136,3 +208,7 @@ Never write generated skills to `.agents/skills`, `.codex/skills`, external rese
 - Do not mark a person perspective publish-ready below Darwin 90 or without fresh-context validation.
 - Do not make style imitation the default behavior for a person perspective.
 - Do not turn mental models into a compulsory answer sequence when the evidence only supports them as reasoning tools.
+- Do not offer self-play refinement for person perspectives; their extraction pipeline is already rigorous.
+- Do not skip user confirmation before or after the self-play loop.
+- Do not default to the last iteration's skill; always run Cross-Time Replay to select the best version.
+- Do not discard `_evolution/` artifacts before the user accepts the final version.

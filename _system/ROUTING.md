@@ -13,7 +13,7 @@ Use the smallest active entrypoint that matches the user's intent.
 | Use a named thinker/person/style perspective | `perspective-library` |
 | Build, compile, convert, audit, or deploy slides | `lecture-slides` |
 | Design, diagnose, prototype, test, balance, visually direct, publish, crowdfund, market, or teach a board game/tabletop game | `boardgame-design-methodology` |
-| Design gamification-based urban renewal, urban design, participatory public-space regeneration, Minecraft/Block-by-Block workshops, playable-city projects, or cultural-tourism activation | `gamified-urban-renewal-design` |
+| Design gamification-based urban renewal, urban design, participatory public-space regeneration, Minecraft/Block-by-Block workshops, playable-city projects, cultural-tourism activation, lightweight route operations, resident-memory protocols, or material-gap ledgers | `gamified-urban-renewal-design` |
 
 If multiple entrypoints apply, start with the one closest to the deliverable:
 

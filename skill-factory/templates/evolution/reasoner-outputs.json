@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Reasoner Outputs",
+  "description": "Schema for solutions produced by the Reasoner for each batch of tasks.",
+  "type": "object",
+  "required": ["iteration", "skill_version", "solutions"],
+  "properties": {
+    "iteration": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Current iteration number."
+    },
+    "skill_version": {
+      "type": "string",
+      "pattern": "^v[0-3]$",
+      "description": "Which version of the skill was used (v0, v1, v2, or v3)."
+    },
+    "solutions": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["task_id", "response", "ambiguities_noted"],
+        "properties": {
+          "task_id": {
+            "type": "string",
+            "pattern": "^T[1-3]$",
+            "description": "Matches the Challenger task ID."
+          },
+          "response": {
+            "type": "string",
+            "minLength": 10,
+            "description": "The Reasoner's full response as would be given to a real user."
+          },
+          "ambiguities_noted": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Skill ambiguities, gaps, or uncertainties the Reasoner encountered."
+          }
+        }
+      }
+    }
+  }
+}

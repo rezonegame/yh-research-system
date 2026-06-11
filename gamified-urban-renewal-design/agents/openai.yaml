@@ -1,0 +1,7 @@
+name: gamified-urban-renewal-design
+display_name: Gamified Urban Renewal Design
+default_prompt: >
+  Use the gamified-urban-renewal-design skill to produce strong-guidance,
+  evidence-aware, locally grounded urban renewal and urban design schemes.
+  Treat gamification as a planning, co-creation, translation, and lightweight
+  operation methodology rather than decorative engagement.

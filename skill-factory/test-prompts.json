@@ -73,5 +73,35 @@
     "id": 15,
     "prompt": "把这个人物的思考流程写成第一步第二步第三步，每次都照着走",
     "expected": "Avoids turning mental models into a compulsory algorithm unless directly evidenced; rewrites them as flexible reasoning tools with evidence basis, suitable situations, diagnostic questions, and misuse risks."
+  },
+  {
+    "id": 16,
+    "prompt": "沉淀一个通用研究技能，帮我走完整的自博弈精炼流程",
+    "expected": "Classifies as general research skill, creates v0 scaffold, captures _creation-context.md, offers self-play refinement (3 iterations x 3 tasks), reads self-play-protocol.md, waits for user confirmation before starting, runs Challenger→Reasoner→Judge+Proposer→Generator loop, executes Cross-Time Replay, presents version score table, waits for user confirmation before finalizing."
+  },
+  {
+    "id": 17,
+    "prompt": "创建通用技能但跳过自博弈，直接进入Darwin评估",
+    "expected": "Offers self-play refinement but allows user to skip. When user chooses skip, goes directly to update indexes and Darwin evaluation without creating _evolution/ directory."
+  },
+  {
+    "id": 18,
+    "prompt": "自博弈后跨时间回放选出了v3（最后一轮），但我更想要v1",
+    "expected": "Presents the Cross-Time Replay score table, respects user's choice. Offers: view structured diff between v1 and v0, accept v1 as final, or keep v0. Does not force the highest-scoring version."
+  },
+  {
+    "id": 19,
+    "prompt": "自博弈三轮后v0得分最高，没有任何改进",
+    "expected": "Keeps v0, records the null result in _evolution/cross-time-replay.json, reports honestly that self-play did not yield improvement, and proceeds to Darwin evaluation without claiming the skill was refined."
+  },
+  {
+    "id": 20,
+    "prompt": "对一个人物视角技能运行自博弈",
+    "expected": "Refuses to offer self-play for person perspectives. Explains that person perspectives already have their own six-lane extraction + triple validation + replay testing pipeline. Routes to the perspective extraction workflow instead."
+  },
+  {
+    "id": 21,
+    "prompt": "自定义自博弈为5轮，每轮5个任务",
+    "expected": "Accepts the customized parameters (N=5, M=5), adjusts the estimated LLM call count accordingly, and runs the self-play loop with the user's specified parameters instead of defaults."
   }
 ]

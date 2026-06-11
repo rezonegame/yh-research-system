@@ -1,0 +1,135 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Cross-Time Replay Results",
+  "description": "Schema for the final Cross-Time Replay selection output that determines the best skill version.",
+  "type": "object",
+  "required": ["selected_version", "selection_rationale", "version_scores", "hard_probe_set", "easy_probe_set", "key_improvements_in_selected", "human_review_required"],
+  "properties": {
+    "selected_version": {
+      "type": "string",
+      "pattern": "^v[0-3]$",
+      "description": "The version selected by Cross-Time Replay."
+    },
+    "selection_rationale": {
+      "type": "string",
+      "description": "Why this version was selected over others."
+    },
+    "version_scores": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "required": ["version", "hard_probes_passed", "hard_probes_total", "easy_probes_passed", "easy_probes_total", "rho_h", "rho_e", "score"],
+        "properties": {
+          "version": {
+            "type": "string",
+            "pattern": "^v[0-3]$"
+          },
+          "hard_probes_passed": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "hard_probes_total": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "easy_probes_passed": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "easy_probes_total": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "rho_h": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Laplace-smoothed hard probe pass rate."
+          },
+          "rho_e": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Laplace-smoothed easy probe pass rate."
+          },
+          "score": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Product of rho_h and rho_e."
+          }
+        }
+      }
+    },
+    "hard_probe_set": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source_iteration", "task_id", "task_description", "binary_rubric"],
+        "properties": {
+          "source_iteration": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 3
+          },
+          "task_id": {
+            "type": "string"
+          },
+          "task_description": {
+            "type": "string"
+          },
+          "binary_rubric": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "easy_probe_set": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source_iteration", "task_id", "task_description", "binary_rubric"],
+        "properties": {
+          "source_iteration": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 3
+          },
+          "task_id": {
+            "type": "string"
+          },
+          "task_description": {
+            "type": "string"
+          },
+          "binary_rubric": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "key_improvements_in_selected": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of concrete improvements in the selected version compared to v0."
+    },
+    "versions_with_zero_hard_passes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Versions that passed zero hard probes — flagged for concern."
+    },
+    "human_review_required": {
+      "type": "boolean",
+      "description": "True if the selected version still has unresolved concerns requiring human attention."
+    }
+  }
+}
