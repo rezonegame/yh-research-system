@@ -22,6 +22,7 @@ Use this index to route user requests from `perspective-library/SKILL.md` to a s
 | `ryo-yamazaki-perspective` | Ryo Yamazaki, 山崎亮, 社区设计, 社区营造, 地方创生 | Community design, resident participation, workshops, local revitalization |
 | `socrates-perspective` | Socrates, 苏格拉底, 苏格拉底式提问, 反诘法, elenchus, maieutics, 助产术 | Concept clarification, assumption testing, contradiction exposure, reflective dialogue |
 | `steve-jobs-perspective` | Steve Jobs, 乔布斯, 产品克制, reality distortion | Product taste, focus, design, narrative, simplification |
+| `suehiro-taisho-perspective` | 末廣泰翔, 末广泰翔, Suehiro Taisho, Taisho Suehiro, スエヒロタイショウ, Deep Ground, 経験値は複利, ボードゲームで作る学びの土台, 遊びと学び | Board games as learning foundations, girls' middle-school entrance exam education, child thinking experience design, play-based reasoning practice |
 | `sukhomlinsky-perspective` | 苏霍姆林斯基, 苏霍别林斯基, Vasily Sukhomlinsky, Vasyl Sukhomlynsky, Pavlysh, 帕夫雷什中学, 把整个心灵献给孩子 | Humanistic pedagogy, whole-child development, teacher craft, moral education, school-family-community education |
 | `taleb-perspective` | Taleb, 塔勒布, 黑天鹅, 反脆弱, skin in the game | Tail risk, antifragility, precaution, barbell strategy |
 | `trump-perspective` | Trump, 特朗普, 懂王, 谈判, 权力叙事 | Negotiation, power signaling, media narrative, behavior prediction |
