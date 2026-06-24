@@ -52,12 +52,28 @@ Revealed preference:
 
 Source: https://deepground.jp/teachers/
 
+### 5. Designing opportunities while preserving the learner's decision
+
+In a 2024 parenting/education essay, Suehiro says the adult can buy materials and make them look inviting, but whether the child becomes absorbed remains the child's choice. In a 2025 talk report, he argues that thinking and deciding make results personally owned, and that board-game turns create repeated opportunities to decide.
+
+Revealed preference:
+
+- Build an environment that makes a valuable action available and attractive.
+- Avoid converting support into total adult control.
+- Treat personal decision as a condition for meaningful feedback and responsibility.
+
+Sources:
+
+- https://keio-juku-gakudo.hatenablog.jp/entry/suehirokosodate
+- https://keio-juku-gakudo.hatenablog.jp/entry/kenkyukai
+
 ## Decision Heuristics Inferred
 
 - If a child must learn a thinking habit, design repeated experience rather than one explanation.
 - If a game is educational, identify the specific rule-generated cognitive act.
 - If teachers are craft-oriented, provide outlines that prevent endless material polishing while preserving quality.
 - If a learning environment matters, invest in tools, materials, and routines.
+- If the learner never chooses, the result is less likely to become personally meaningful; design recurring moments where a real decision is unavoidable.
 
 ## Evidence Gaps
 

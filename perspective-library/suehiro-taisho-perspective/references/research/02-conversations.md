@@ -6,6 +6,19 @@ Public interviews, seminars, talks, Q&A, or conversational material.
 
 ## Available Evidence
 
+### 2025 teaching-practice research meeting
+
+A first-person Suehiro-tagged post records his appearance at `塾講師教務力研究会`.
+
+- Date: 2025-10-26.
+- Talk subtheme: `机で勉強するその前に`.
+- Reported concepts: `経験値は複利`, `考える経験値`, and `決める経験値`.
+- Conversational reasoning: he moves from examples of recommendation algorithms and parent-decided schedules to the claim that children have too few chances to decide; he then links self-thinking plus self-decision to outcomes becoming `自分事`.
+- He uses board-game turn structure as the concrete mechanism that creates decision opportunities.
+- This is a retrospective first-person event report, not a transcript of the talk or audience Q&A.
+
+Source: https://keio-juku-gakudo.hatenablog.jp/entry/kenkyukai
+
 ### Online teaching seminar profile
 
 PR TIMES announced a free online seminar, `おうち時間を楽しむホームティーチング`, held on 2021-02-20 with Suehiro Taisho listed as a speaker from Deep Ground.
@@ -35,4 +48,4 @@ The available seminar page does not include a transcript. Therefore, the followi
 
 - No full public transcript of the seminar was found in this run.
 - No long-form interview with spontaneous Q&A was found in accessible search results.
-- This lane is intentionally marked weaker than writings and official profiles.
+- This lane remains weaker than writings because the 2025 material is a retrospective account rather than a verbatim transcript.

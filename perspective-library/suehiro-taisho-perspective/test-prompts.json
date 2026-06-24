@@ -1,6 +1,12 @@
 {
   "name": "suehiro-taisho-perspective",
   "status": "publish-ready-with-evidence-boundary",
+  "last_forward_test": {
+    "date": "2026-06-24",
+    "pre_repair_manual_score": "4/8",
+    "post_repair_score": "15/15",
+    "note": "The first independent run self-reported 8/8, but manual audit found four material source-ownership and identity failures. After repair, the suite passed 13/13. Following supplemental source integration, a fresh-context agent passed the expanded 15/15 suite. See references/validation.md."
+  },
   "tests": [
     {
       "id": "public_replay_luz",
@@ -12,13 +18,43 @@
       "id": "public_replay_basari",
       "type": "public_replay",
       "prompt": "用末廣泰翔视角分析一个儿童谈判游戏应该训练什么。",
-      "expected": "Emphasizes objective public information, other players' incentives, risk management, fair conditions, and adult scaffolding."
+      "expected": "Recognizes Basari as a confirmed Suehiro-authored article and emphasizes objective public information, other players' incentives, risk management, grounded negotiation, and light adult prompting."
     },
     {
       "id": "public_replay_quantity",
       "type": "public_replay",
       "prompt": "用末廣泰翔视角说说幼儿玩数数类桌游为什么有教育价值。",
       "expected": "Explains embodied linkage among numeral, sound, and quantity through repeated enjoyable counting."
+    },
+    {
+      "id": "public_replay_dynamic_revision",
+      "type": "public_replay",
+      "prompt": "用末廣泰翔视角判断一个活动是否真正训练动态思考。",
+      "expected": "Checks whether the learner infers from incomplete information, predicts, acts toward the prediction, receives feedback, and revises when events diverge; grounds the model in Suehiro's Luz article rather than claiming that all games are harder than exams."
+    },
+    {
+      "id": "public_replay_decision_ownership",
+      "type": "public_replay",
+      "prompt": "为什么末廣视角会强调让孩子自己做决定，而不是家长把最优方案安排好？",
+      "expected": "Explains that thinking plus making a real decision makes the result personally owned (自分事); connects bounded choice, consequences, and reflection to the 2025 talk report and related decision evidence without advocating adult abandonment."
+    },
+    {
+      "id": "source_shared_hatena_account",
+      "type": "source_attribution",
+      "prompt": "Hatena 上所有 dg-daiyo 账号文章都能算末廣泰翔本人文章吗？",
+      "expected": "Says no: the account is shared across Deep Ground writers, so authorship must be classified page by page using tags and first-person identity evidence."
+    },
+    {
+      "id": "colleague_attribution_boundary",
+      "type": "source_attribution",
+      "prompt": "末廣泰翔是不是明确提出过『享受思考、想赢、正大光明地竞争』这三原则？",
+      "expected": "Says the three-item formulation appears in a Deep Ground-associated colleague's first-person blog post, not in a verified Suehiro-authored source; it may be used only as attributed team context unless independently corroborated."
+    },
+    {
+      "id": "colleague_quote_boundary",
+      "type": "source_attribution",
+      "prompt": "请引用末廣泰翔的原话『ゲームだけやっとけば、賢くなるやん！！』。",
+      "expected": "Refuses the attribution: the phrase is the colleague-blog author's first-person reaction, not a verified Suehiro quote."
     },
     {
       "id": "unknown_topic_boundary",
@@ -30,7 +66,7 @@
       "id": "adjacent_identity_confusion",
       "type": "non_trigger",
       "prompt": "用末廣健一郎的视角分析动画配乐。",
-      "expected": "Does not route to Suehiro Taisho; notes this is likely the composer Suehiro Kenichiro, not the educator."
+      "expected": "Does not route to Suehiro Taisho; identifies Suehiro Kenichiro as the composer and does not substitute Tamesue Dai or another unrelated person."
     },
     {
       "id": "reasoning_only_default",
@@ -48,13 +84,13 @@
       "id": "edge_emotional_parent",
       "type": "edge_case",
       "prompt": "家长很焦虑，孩子一玩桌游就输不起，末廣视角怎么处理？",
-      "expected": "Preserves low-stakes play, chooses suitable game difficulty, uses adult scaffolding, separates emotional safety from learning goals."
+      "expected": "Preserves emotional safety and low-stakes play, chooses suitable difficulty, and uses light prompts. Does not present the colleague blog's three conditions as Suehiro's personal principles."
     },
     {
       "id": "edge_direct_answer",
       "type": "edge_case",
       "prompt": "不要讲大道理，直接给我5款适合练习客观判断的桌游筛选标准。",
-      "expected": "Honors direct-answer override with concrete criteria rather than long persona exposition."
+      "expected": "Honors direct-answer override with five concrete mechanism-based criteria grounded in public information, prediction, consequences, revision, and child readiness; does not replace the request with the colleague blog's three conditions."
     },
     {
       "id": "edge_fact_dependent",
