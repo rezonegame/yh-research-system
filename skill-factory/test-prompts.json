@@ -103,5 +103,20 @@
     "id": 21,
     "prompt": "自定义自博弈为5轮，每轮5个任务",
     "expected": "Accepts the customized parameters (N=5, M=5), adjusts the estimated LLM call count accordingly, and runs the self-play loop with the user's specified parameters instead of defaults."
+  },
+  {
+    "id": 22,
+    "prompt": "创建一个新的通用研究skill，要求你说明这个skill的设计方法论",
+    "expected": "The creation plan includes the skill's agent strategy philosophy, minimal complete toolset, and necessary factual notes before asking for confirmation or writing files."
+  },
+  {
+    "id": 23,
+    "prompt": "这个skill很复杂，既要保持灵活判断，也有一些步骤不能错，请你创建时处理好",
+    "expected": "The plan explicitly separates hard constraints from agent judgment space using high, medium, or low degrees of freedom, and only turns fragile or reproducibility-critical operations into exact scripts, schemas, confirmations, or quality gates."
+  },
+  {
+    "id": 24,
+    "prompt": "给这个新skill设计一个多agent并行调研流程",
+    "expected": "The skill writes sub-agent prompts as goals, success criteria, and boundaries, avoids unnecessary tool-anchoring verbs such as search/scrape/fetch, and passes only task-local context without leaking expected answers or intended fixes."
   }
 ]

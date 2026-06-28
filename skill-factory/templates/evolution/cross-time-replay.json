@@ -7,7 +7,7 @@
   "properties": {
     "selected_version": {
       "type": "string",
-      "pattern": "^v[0-3]$",
+      "pattern": "^v[0-9]+$",
       "description": "The version selected by Cross-Time Replay."
     },
     "selection_rationale": {
@@ -16,35 +16,30 @@
     },
     "version_scores": {
       "type": "array",
-      "minItems": 4,
-      "maxItems": 4,
+      "minItems": 2,
       "items": {
         "type": "object",
         "required": ["version", "hard_probes_passed", "hard_probes_total", "easy_probes_passed", "easy_probes_total", "rho_h", "rho_e", "score"],
         "properties": {
           "version": {
             "type": "string",
-            "pattern": "^v[0-3]$"
+            "pattern": "^v[0-9]+$"
           },
           "hard_probes_passed": {
             "type": "integer",
-            "minimum": 0,
-            "maximum": 3
+            "minimum": 0
           },
           "hard_probes_total": {
             "type": "integer",
-            "minimum": 0,
-            "maximum": 3
+            "minimum": 0
           },
           "easy_probes_passed": {
             "type": "integer",
-            "minimum": 0,
-            "maximum": 3
+            "minimum": 0
           },
           "easy_probes_total": {
             "type": "integer",
-            "minimum": 0,
-            "maximum": 3
+            "minimum": 0
           },
           "rho_h": {
             "type": "number",
@@ -75,8 +70,7 @@
         "properties": {
           "source_iteration": {
             "type": "integer",
-            "minimum": 1,
-            "maximum": 3
+            "minimum": 1
           },
           "task_id": {
             "type": "string"
@@ -98,8 +92,7 @@
         "properties": {
           "source_iteration": {
             "type": "integer",
-            "minimum": 1,
-            "maximum": 3
+            "minimum": 1
           },
           "task_id": {
             "type": "string"

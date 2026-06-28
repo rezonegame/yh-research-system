@@ -10,17 +10,17 @@
 
 | 角色 | 职责 | 输入 | 输出 |
 |------|------|------|------|
-| Challenger | 生成对抗性探测任务 | 当前 SKILL.md + 创建上下文 | 3 个任务 + 二元评分标准 |
-| Reasoner | 严格按技能执行任务 | 任务 + 当前 SKILL.md | 3 个解答 |
+| Challenger | 生成对抗性探测任务 | 当前 SKILL.md + 创建上下文 | M 个任务 + 二元评分标准 |
+| Reasoner | 严格按技能执行任务 | 任务 + 当前 SKILL.md | M 个解答 |
 | Judge+Proposer | 评判结果 + 诊断模式 | 任务 + 解答 + 评分标准 | 判决 + 双方诊断 |
 | Generator | 物化诊断 → 完整替换 SKILL.md | 诊断 + 当前 SKILL.md | 完整新版 SKILL.md |
 
 ## 超参数
 
-- **N = 3**：迭代轮数（Ctx2Skill 用 5，本地场景 3 轮已捕获大部分收益）
-- **M = 3**：每轮任务数
+- **N = 3（默认）**：迭代轮数。用户可明确改为其他正整数，例如 N=5。
+- **M = 3（默认）**：每轮任务数。用户可明确改为其他正整数，例如 M=5。
 - **α = 0.1**：加性平滑系数（additive smoothing，常用名 Laplace smoothing）
-- 每轮 6 次 LLM 调用，3 轮共 18 次；跨时间回放额外 7 次；总计 ~25 次
+- 默认 3×3 约 25 次 LLM 调用。自定义时估算为：每轮约 `1 + M + 1 + 1` 次，跨时间回放约 `(N+1) × |H ∪ E|` 次 Reasoner/Judge 评估；向用户展示估算而不是沿用固定 25 次。
 
 ---
 
@@ -74,7 +74,7 @@ Cross-task insight: {cross_task_insight}
 1. 所有占位符使用花括号 `{key}` 标记，填充时完整替换（含花括号）。
 2. JSON 字符串内的换行符转义为 `\n`。
 3. 占位符值为空时使用 `"(not available)"`，不得留空花括号。
-4. `{i}` = 当前迭代编号（1/2/3），`{M}` = 每轮任务数（3）。
+4. `{i}` = 当前迭代编号（1..N），`{M}` = 每轮任务数。
 
 ---
 
@@ -404,23 +404,25 @@ Output ONLY valid JSON conforming to `templates/evolution/generator-outputs.json
 ### 算法
 
 ```
-输入: 技能版本列表 V = [v0, v1, v2, v3], 各轮迭代记录
+输入: 技能版本列表 V = [v0, v1, ..., vN], 各轮迭代记录
 输出: 最优版本 v*
 
 1. 构建 Hard Probe Set H:
-   for each iteration i in [1, 2, 3]:
+   for each iteration i in [1..N]:
      从 iteration-i 的 FAILED 任务中，选择 Judge explanation 显示
      "最接近通过"的任务（即失败原因最轻微的那个）
+     如果该轮没有 FAILED 任务，选择"最接近边界"的 PASS 任务
      加入 H
 
 2. 构建 Easy Probe Set E:
-   for each iteration i in [1, 2, 3]:
+   for each iteration i in [1..N]:
      从 iteration-i 的 PASSED 任务中，选择 Judge explanation 显示
      "最轻松通过"的任务（即通过最没有悬念的那个）
+     如果该轮没有 PASSED 任务，跳过该轮的 E 项
      加入 E
 
 3. 跨版本评估:
-   for each version v in [v0, v1, v2, v3]:
+   for each version v in [v0, v1, ..., vN]:
      for each probe task q in H ∪ E:
        用版本 v 的 SKILL.md 运行 Reasoner 解答 q
        用 Judge 评判解答（使用原始 rubric）
@@ -484,21 +486,21 @@ Output ONLY valid JSON conforming to `templates/evolution/generator-outputs.json
 当前版本：v0（已确认的骨架版本）
 
 精炼参数：
-- 迭代轮数：3
-- 每轮任务数：3
-- 预计 LLM 调用：~25 次
-- 产出：4 个版本候选 (v0-v3)，Cross-Time Replay 自动选择最优
+- 迭代轮数：{N}（默认 3）
+- 每轮任务数：{M}（默认 3）
+- 预计 LLM 调用：{estimated_calls}
+- 产出：{N+1} 个版本候选 (v0-v{N})，Cross-Time Replay 自动选择最优
 
 是否进行自博弈精炼？
 [1] 是，开始精炼
 [2] 跳过，直接用 v0 进入 Darwin 评估
-[3] 自定义轮数（请输入 N）
+[3] 自定义轮数和任务数（请输入 N 和 M）
 ```
 
 ### 检查点 B：自博弈后
 
 ```
-🏆 跨时间回放结果
+🏆 跨时间回放结果（默认 3×3 示例；自定义 N/M 时输出 v0-v{N} 全表）
 
 | 版本 | 硬探针 (ρ_h) | 易探针 (ρ_e) | 综合得分 | 
 |------|-------------|-------------|---------|
@@ -532,3 +534,4 @@ v2 相比 v0 的关键改进：
 | _evolution/ 目录已存在 | 归档为 _evolution.bak.{N} 后再创建新的 |
 | 某轮迭代无失败任务 | Hard Probe 从该轮取"最接近边界的 PASS" |
 | 某轮迭代无成功任务 | Easy Probe 跳过该轮 |
+| 用户自定义 N/M | 使用用户值更新所有占位符、版本集合、输出目录、schema 校验和调用估算；不得继续使用 v0-vN 之外的固定版本集合或固定 probe 数量假设 |

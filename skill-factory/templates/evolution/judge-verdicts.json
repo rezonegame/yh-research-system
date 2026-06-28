@@ -12,15 +12,14 @@
     },
     "judgments": {
       "type": "array",
-      "minItems": 3,
-      "maxItems": 3,
+      "minItems": 1,
       "items": {
         "type": "object",
         "required": ["task_id", "verdict", "explanation", "failure_classification"],
         "properties": {
           "task_id": {
             "type": "string",
-            "pattern": "^T[1-3]$"
+            "pattern": "^T[1-9][0-9]*$"
           },
           "verdict": {
             "type": "string",
@@ -32,7 +31,7 @@
             "description": "One-sentence explanation of the verdict."
           },
           "failure_classification": {
-            "type": "string",
+            "type": ["string", "null"],
             "enum": ["skill_gap", "skill_ambiguity", "reasoner_error", null],
             "description": "Null if verdict is PASS."
           }
@@ -45,13 +44,11 @@
       "properties": {
         "pass_count": {
           "type": "integer",
-          "minimum": 0,
-          "maximum": 3
+          "minimum": 0
         },
         "fail_count": {
           "type": "integer",
-          "minimum": 0,
-          "maximum": 3
+          "minimum": 0
         },
         "dominant_failure_pattern": {
           "type": ["string", "null"],

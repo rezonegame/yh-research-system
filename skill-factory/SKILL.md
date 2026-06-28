@@ -35,6 +35,42 @@ Retired perspective skill:
 .claude/skills/_archive/deprecated/perspectives/[person-name]-perspective/
 ```
 
+## Skill Design Standard
+
+Every new or upgraded skill must be designed as:
+
+```text
+Skill = agent strategy philosophy + minimal complete toolset + necessary factual notes
+```
+
+Use this standard before writing workflow steps:
+
+1. **Agent strategy philosophy**: State how the skill should change the agent's judgment in this domain. Prefer decision principles, success criteria, and feedback loops over rigid step lists when multiple paths can work.
+2. **Minimal complete toolset**: Include only the scripts, references, templates, assets, and test prompts needed for reliable repeated use. Do not add resource folders or examples just because the format allows them.
+3. **Necessary factual notes**: Add facts the model is likely to forget, misremember, or repeatedly trip over. Keep these facts close to the workflow when essential; move detailed background to `references/`.
+
+### Degrees of Freedom
+
+For each skill, explicitly mark which parts are hard constraints and which parts are agent judgment space:
+
+| Degree | Use for | Required shape |
+|---|---|---|
+| High freedom | Strategy, research, writing, ideation | Principles, decision criteria, examples, and failure signals |
+| Medium freedom | Repeatable workflows with legitimate variation | Templates, checklists, defaults, and override rules |
+| Low freedom | Fragile, risky, or reproducibility-critical operations | Scripts, exact commands, schemas, confirmations, and quality gates |
+
+Do not turn a flexible strategy into a compulsory algorithm unless the task is fragile enough to justify low freedom.
+
+### Experience Capture
+
+- General research skills must create `references/_creation-context.md` from `templates/creation-context.md`.
+- Complex skills should preserve `_evolution/`, failure modes, replay tests, Darwin results, and quality-gate notes as audit trails.
+- Reusable domain experience belongs in `references/` with clear load conditions, not in the main `SKILL.md` unless it is core execution guidance.
+
+### Sub-Agent Prompting
+
+When a generated skill uses sub-agents, write sub-agent prompts as goals, success criteria, and boundaries. Avoid tool-anchoring verbs such as "search", "scrape", or "fetch" unless that exact tool path is required. Pass only task-local context; do not leak expected answers, intended fixes, or private reviewer conclusions.
+
 ## Workflow
 
 Follow this order for every production request:
@@ -42,17 +78,17 @@ Follow this order for every production request:
 1. Classify the request as general workflow, research method, tool integration, person perspective, or perspective retirement.
 2. Check `_system/INDEX.md`, `_system/ROUTING.md`, and `perspective-library/INDEX.md` for duplicates, active aliases, and existing retirement targets.
 3. For person perspectives, read `perspective-library/references/extraction-framework.md` and choose one status: publish-ready perspective by default, or stable / lightweight draft only when the user explicitly requests a lower target.
-4. Output a short implementation plan that names the target directory, index files to edit, test prompts to create or update, research lanes to run, and validation steps.
+4. Output a short implementation plan that names the target directory, index files to edit, test prompts to create or update, research lanes to run, validation steps, the skill's strategy philosophy, minimal toolset, necessary factual notes, and degree-of-freedom split.
 5. Stop for user confirmation before creating a new top-level skill, creating a person perspective, editing `_system/INDEX.md`, editing `perspective-library/INDEX.md`, or retiring a perspective.
 6. Create or update a self-contained directory with `SKILL.md`, `references/`, `scripts/`, `templates/`, and `test-prompts.json` as needed.
 
 ### 通用技能路径（General Skills）
 
-6a. For general research skills (NOT person perspectives), capture the creation context in `references/_creation-context.md` using `templates/creation-context.md`. Include the user's original request, intent classification, scope boundaries, design decisions, and known limitations.
-6b. For general research skills, offer self-play refinement (3 iterations × 3 tasks, ~25 LLM calls). Read `references/self-play-protocol.md` for the full protocol. Stop for user confirmation before starting self-play. The user may accept, skip (go to step 9), or customize the iteration count.
+6a. For general research skills (NOT person perspectives), capture the creation context in `references/_creation-context.md` using `templates/creation-context.md`. Include the user's original request, intent classification, scope boundaries, design decisions, strategy philosophy, minimal complete toolset, necessary factual notes, degree-of-freedom split, and known limitations.
+6b. For general research skills, offer self-play refinement with default N=3 iterations and M=3 tasks (~25 LLM calls). Read `references/self-play-protocol.md` for the full protocol. Stop for user confirmation before starting self-play. The user may accept, skip (go to step 9), customize N/M, or ask for a cost estimate.
 6c. If user accepts self-play, run the loop defined in `references/self-play-protocol.md`:
    - Create `_evolution/` directory with per-iteration subdirectories.
-   - For each iteration: Challenger generates 3 adversarial tasks → Reasoner solves each → Judge+Proposer evaluates and diagnoses → Generator materializes revised SKILL.md.
+   - For each iteration: Challenger generates M adversarial tasks → Reasoner solves each → Judge+Proposer evaluates and diagnoses → Generator materializes revised SKILL.md.
    - After all iterations: Cross-Time Replay selects the best version using Laplace-smoothed product score ρ_h · ρ_e.
    - Present Cross-Time Replay results table to user. Stop for confirmation.
    - If self-play yields no improvement (v0 scores highest), keep v0, record the null result, and proceed.
@@ -119,15 +155,15 @@ Five roles operate through structured prompts (not separate agents):
 | **Judge+Proposer** | Evaluates all 3 solutions (strict all-or-nothing), then diagnoses cross-task failure/success patterns |
 | **Generator** | Materializes the Proposer's diagnosis into a complete replacement SKILL.md |
 
-The loop runs N=3 iterations × M=3 tasks. Failed tasks route to Reasoner-side skill improvement; passed tasks route to Challenger-side strategy tightening. Both sides co-evolve.
+The default loop runs N=3 iterations × M=3 tasks. If the user customizes N or M, use those values consistently in prompts, output schemas, folder names, version labels, cost estimates, and Cross-Time Replay. Failed tasks route to Reasoner-side skill improvement; passed tasks route to Challenger-side strategy tightening. Both sides co-evolve.
 
 ### Cross-Time Replay
 
-After 3 iterations, we have 4 skill versions (v0-v3). Cross-Time Replay selects the best:
+After N iterations, there are N+1 skill versions (`v0` through `vN`). Cross-Time Replay selects the best:
 
-1. **Hard Probe Set**: The closest-to-passing failure from each iteration (3 probes)
-2. **Easy Probe Set**: The most decisive success from each iteration (3 probes)
-3. **Scoring**: Each version v is tested against all 6 probes
+1. **Hard Probe Set**: At most one closest-to-passing failure from each iteration. If an iteration has no failures, use its closest-to-boundary PASS.
+2. **Easy Probe Set**: At most one most decisive success from each iteration. If an iteration has no successes, skip that iteration for E.
+3. **Scoring**: Each version v is tested against all probes in H ∪ E.
    - score(v) = (hard_pass_rate + 0.1) × (easy_pass_rate + 0.1)
    - Multiplicative form penalizes versions that sacrifice easy tasks for hard ones
 4. **Selection**: v* = argmax score(v); ties go to later version
@@ -143,6 +179,7 @@ After 3 iterations, we have 4 skill versions (v0-v3). Cross-Time Replay selects 
 | All versions have 0 hard-probe passes | Flag for human review, select version with highest easy-probe score. |
 | User rejects selected version | Offer: edit manually / re-run Cross-Time / keep v0. |
 | _evolution/ already exists | Archive previous as _evolution.bak.{N} before creating new. |
+| Custom N/M conflicts with a schema, prompt, or template | Treat the schema/prompt/template as stale; update it to parameterized `v数字` and N/M before running self-play. |
 
 ## Retire a Perspective
 
@@ -184,6 +221,8 @@ The `agents/openai.yaml` file in this and other active skill directories provide
 | Batch retirement partially succeeds | Audit every requested perspective, then complete directory and index cleanup sequentially. |
 | `test-prompts.json` is missing or invalid | Fix or create it before Darwin evaluation; do not mark the skill stable. |
 | Darwin score is below the requested quality gate | Enter a repair loop focused on the weakest dimension before delivery. |
+| New skill plan lacks strategy philosophy, minimal toolset, necessary facts, or degree-of-freedom split | Add those design elements before asking for creation confirmation. |
+| Sub-agent prompt anchors on an avoidable tool path | Rewrite it as target outcome, success criteria, and boundaries before delegation. |
 | Self-play loop produces no improvement over v0 | Keep v0, record the null result in `_evolution/`, and proceed to Darwin evaluation. |
 | Cross-Time Replay selects a version with 0 hard-probe passes | Flag the skill for human review, present the easy-probe score, and ask the user to decide. |
 | User rejects the self-play selected version | Offer: view structured diff, edit manually and re-run Cross-Time, or keep v0. |
@@ -203,6 +242,8 @@ Never write generated skills to `.agents/skills`, `.codex/skills`, external rese
 - Do not leave a retired perspective reachable through `perspective-library/INDEX.md` aliases or triggers.
 - Do not skip user confirmation for index edits, new active skills, or perspective retirement.
 - Do not skip `darwin-skill` evaluation before calling a new or changed skill stable.
+- Do not create or upgrade a skill without documenting its strategy philosophy, minimal complete toolset, necessary factual notes, and degree-of-freedom split.
+- Do not write sub-agent prompts that unnecessarily force a tool path when multiple approaches could satisfy the goal.
 - Do not create a stable person perspective from general knowledge alone.
 - Do not skip `perspective-library/references/extraction-framework.md` for person perspectives.
 - Do not mark a person perspective publish-ready below Darwin 90 or without fresh-context validation.

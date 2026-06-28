@@ -12,15 +12,14 @@
     },
     "tasks": {
       "type": "array",
-      "minItems": 3,
-      "maxItems": 3,
+      "minItems": 1,
       "items": {
         "type": "object",
         "required": ["id", "weakness_category", "target_section", "task_description", "binary_rubric", "expected_difficulty"],
         "properties": {
           "id": {
             "type": "string",
-            "pattern": "^T[1-3]$",
+            "pattern": "^T[1-9][0-9]*$",
             "description": "Task identifier within this iteration."
           },
           "weakness_category": {

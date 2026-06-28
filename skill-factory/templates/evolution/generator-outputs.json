@@ -8,17 +8,16 @@
     "iteration": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 3,
-      "description": "Current self-play iteration number."
+      "description": "Current self-play iteration number. Defaults run 1..3; custom N may exceed 3."
     },
     "source_version": {
       "type": "string",
-      "pattern": "^v[0-2]$",
+      "pattern": "^v[0-9]+$",
       "description": "The skill version that was diagnosed (input to this Generator run)."
     },
     "target_version": {
       "type": "string",
-      "pattern": "^v[1-3]$",
+      "pattern": "^v[1-9][0-9]*$",
       "description": "The new skill version produced by this Generator run."
     },
     "skill_content": {

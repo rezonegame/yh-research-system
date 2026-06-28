@@ -207,7 +207,7 @@ Deep Ground colleague-blog material may be used only as attributed team context.
 - Adjacent-person test: non-trigger protects against composer Suehiro Kenichiro.
 - Reasoning-only test: default output should analyze learning design, not mimic voice.
 - Style-overreach test: expression DNA is optional only.
-- Independent fresh-context testing was run twice on 2026-06-24. Manual audit scored the initial run 4/8 because its self-grading missed four attribution/identity failures; after repair, a second agent passed all 13 tests. Darwin improved from 91.6 to 94.7. Details are in `references/validation.md`.
+- Independent fresh-context testing was run across successive repairs on 2026-06-24. Manual audit scored the initial run 4/8 because its self-grading missed four attribution/identity failures; the repaired suite passed 13/13, and the source-expanded suite passed 15/15. Final Darwin evaluation scored 96.3/100. Details are in `references/validation.md`.
 
 ## Source Notes
 

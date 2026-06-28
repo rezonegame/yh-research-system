@@ -43,12 +43,12 @@ The post-repair run supplies the fresh-context gate required for publish-ready s
 
 ## Darwin Evaluation — 2026-06-24
 
-- Baseline: **91.6/100**
-- Post-repair: **94.7/100**
-- Change: **+3.1**
+- Initial baseline: **91.6/100**
+- Attribution-repair evaluation: **94.7/100**
+- Final supplemental-source evaluation: **96.3/100**
 - Decision: **keep**
 
-The final three core models passed triple validation. Partial candidates remain merged into diagnostics or downgraded to heuristics.
+The final three core models passed triple validation. The supplemental fourth candidate failed recurrence and exclusivity, so it remains an emerging heuristic. The final score was calculated from scratch as 867 ÷ 9, rather than inheriting the earlier score.
 
 ## Evidence Boundary
 
