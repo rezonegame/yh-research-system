@@ -11,15 +11,16 @@ Use this skill to judge quality. The goal is not to generate more content, but t
 ## Workflow
 
 1. Identify the object being evaluated: paper, research design, analysis, slides, writing, code, or skill.
-2. Select the relevant module or rubric.
-3. State criteria before judging.
-4. Lead with findings ordered by severity.
-5. Separate evidence-backed issues from preferences.
-6. Provide concrete fixes or escalation paths.
+2. If the request is generation or modeling rather than critique, route to `research-workflow` or `analysis-workflow`.
+3. Select the relevant module or rubric.
+4. State criteria before judging.
+5. Lead with findings ordered by severity.
+6. Separate evidence-backed issues from preferences.
+7. Provide concrete fixes or escalation paths.
 
 ## Do Not
 
-- Do not rewrite the artifact unless asked.
+- Do not rewrite the artifact unless critique or revision is explicitly requested.
 - Do not praise before listing serious issues.
 - Do not optimize skills here; use `darwin-skill`.
 

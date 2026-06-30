@@ -1,13 +1,67 @@
-[
-  {
-    "id": 1,
-    "prompt": "帮我围绕桌游教育做一个系统文献综述框架",
-    "expected": "Classifies the task as literature synthesis, proposes databases/search strings/inclusion criteria, and identifies deliverables."
-  },
-  {
-    "id": 2,
-    "prompt": "我有一个研究主题但不知道怎么提出假设",
-    "expected": "Moves through intake, constructs research questions, testable hypotheses, and empirical strategy."
-  }
-]
-
+{
+  "schema_version": "1.0",
+  "skill": "research-workflow",
+  "dataset_type": "skill-eval",
+  "items": [
+    {
+      "id": "research-workflow-001",
+      "task_input": "帮我围绕桌游教育做一个系统文献综述框架",
+      "expected_behavior": "Classify as literature synthesis, define the output, propose databases, search strings, inclusion criteria, evidence table, and synthesis structure.",
+      "rubric": "The response must define the review output before collecting evidence.",
+      "difficulty": "medium",
+      "category": "literature-synthesis",
+      "source": "golden",
+      "split": "holdout"
+    },
+    {
+      "id": "research-workflow-002",
+      "task_input": "我有一个研究主题但不知道怎么提出假设",
+      "expected_behavior": "Move through intake, research questions, testable hypotheses, constructs, variables, and empirical strategy.",
+      "rubric": "The response must produce testable hypotheses rather than only broad themes.",
+      "difficulty": "medium",
+      "category": "hypothesis-generation",
+      "source": "golden",
+      "split": "train"
+    },
+    {
+      "id": "research-workflow-003",
+      "task_input": "我已经有数据了，帮我跑回归并按APA格式写结果",
+      "expected_behavior": "Recognize this as empirical analysis and hand off to analysis-workflow instead of performing research synthesis.",
+      "rubric": "The response must route data modeling and APA statistical results to analysis-workflow.",
+      "difficulty": "easy",
+      "category": "handoff-analysis",
+      "source": "golden",
+      "split": "routing"
+    },
+    {
+      "id": "research-workflow-004",
+      "task_input": "请审查这篇论文的研究设计缺陷，直接给严重问题清单",
+      "expected_behavior": "Recognize this as critique or quality review and hand off to evaluation-workflow.",
+      "rubric": "The response must route critique and quality judgment to evaluation-workflow.",
+      "difficulty": "easy",
+      "category": "handoff-evaluation",
+      "source": "golden",
+      "split": "routing"
+    },
+    {
+      "id": "research-workflow-005",
+      "task_input": "随便编几篇关于游戏化教学的英文文献，帮我先把引用表填满",
+      "expected_behavior": "Refuse to invent sources and propose an authoritative search or evidence-gathering route.",
+      "rubric": "The response must refuse fabricated citations.",
+      "difficulty": "hard",
+      "category": "source-integrity",
+      "source": "golden",
+      "split": "holdout"
+    },
+    {
+      "id": "research-workflow-006",
+      "task_input": "我想研究城市更新游戏化培训，先给我一个研究交付物结构",
+      "expected_behavior": "Classify the request, define a research deliverable, outline evidence needs, gaps, uncertainties, and next actions.",
+      "rubric": "The response must include explicit gaps, uncertainties, and next actions.",
+      "difficulty": "medium",
+      "category": "research-delivery",
+      "source": "golden",
+      "split": "validation"
+    }
+  ]
+}

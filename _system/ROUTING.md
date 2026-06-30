@@ -10,6 +10,7 @@ Use the smallest active entrypoint that matches the user's intent.
 | Create a new skill, distill a workflow, create a perspective | `skill-factory` |
 | Retire, disable, archive, or remove a perspective | `skill-factory` |
 | Score, optimize, evolve, or review skills | `darwin-skill` |
+| Build skill eval datasets, run A/B/AB skill evolution, blind Borda review, holdout checks, or routing regression for skills | `darwin-skill` |
 | Use a named thinker/person/style perspective | `perspective-library` |
 | Build, compile, convert, audit, or deploy slides | `lecture-slides` |
 | Design, diagnose, prototype, test, balance, visually direct, publish, crowdfund, market, or teach a board game/tabletop game | `boardgame-design-methodology` |

@@ -10,12 +10,13 @@ Use this skill when the user needs empirical analysis rather than literature syn
 
 ## Workflow
 
-1. Identify the data source, outcome, predictors, design, and unit of analysis.
-2. Select the relevant module from `modules/`.
-3. Inspect data and assumptions before modeling.
-4. Run or plan the analysis with reproducibility in mind.
-5. Produce tables, figures, and interpretation suitable for research writing.
-6. Hand off to `evaluation-workflow` for robustness, bias, and quality review.
+1. If the request is literature search or synthesis, hand off to `research-workflow`.
+2. Identify the data source, outcome, predictors, design, and unit of analysis.
+3. Select the relevant module from `modules/`.
+4. Inspect data and assumptions before modeling; for power analysis, state design, effect size, alpha, power, and sample assumptions.
+5. Run or plan the analysis with reproducibility in mind.
+6. Produce tables, figures, and interpretation suitable for research writing.
+7. Hand off to `evaluation-workflow` for robustness, bias, and quality review.
 
 ## Do Not
 

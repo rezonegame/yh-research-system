@@ -1,0 +1,21 @@
+{
+  "run_id": "20260630-1758",
+  "target_skill": "evaluation-workflow",
+  "candidate": "AB",
+  "status": "pass",
+  "items": [
+    {
+      "id": "evaluation-workflow-003",
+      "rubric": "The response must route literature synthesis generation to research-workflow.",
+      "result": "pass",
+      "evidence": "Candidate AB routes generation requests to research-workflow."
+    },
+    {
+      "id": "evaluation-workflow-004",
+      "rubric": "The response must route model running and statistical interpretation to analysis-workflow.",
+      "result": "pass",
+      "evidence": "Candidate AB routes modeling requests to analysis-workflow."
+    }
+  ],
+  "routing_regression": false
+}

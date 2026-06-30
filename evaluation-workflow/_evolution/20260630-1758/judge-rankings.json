@@ -1,0 +1,22 @@
+{
+  "run_id": "20260630-1758",
+  "target_skill": "evaluation-workflow",
+  "ranking_method": "blind_borda",
+  "rankings": [
+    {
+      "judge": "J1",
+      "ranking": ["AB", "B", "A"],
+      "rationale": "AB fixes routing for non-critique requests while staying concise and general."
+    },
+    {
+      "judge": "J2",
+      "ranking": ["B", "AB", "A"],
+      "rationale": "B is more explicit about literature synthesis and model-running handoffs."
+    },
+    {
+      "judge": "J3",
+      "ranking": ["AB", "B", "A"],
+      "rationale": "AB is less verbose and preserves the original evaluation posture while adding the needed handoff rule."
+    }
+  ]
+}

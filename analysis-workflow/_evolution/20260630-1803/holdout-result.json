@@ -1,0 +1,21 @@
+{
+  "run_id": "20260630-1803",
+  "target_skill": "analysis-workflow",
+  "candidate": "AB",
+  "status": "pass",
+  "items": [
+    {
+      "id": "analysis-workflow-001",
+      "rubric": "The response must inspect assumptions or diagnostics before judging reliability.",
+      "result": "pass",
+      "evidence": "Candidate AB preserves inspection of data and assumptions before modeling."
+    },
+    {
+      "id": "analysis-workflow-004",
+      "rubric": "The response must refuse fabricated statistical results.",
+      "result": "pass",
+      "evidence": "Candidate AB preserves the prohibition against inventing data or statistical results."
+    }
+  ],
+  "regression": false
+}

@@ -1,0 +1,22 @@
+{
+  "run_id": "20260630-1803",
+  "target_skill": "analysis-workflow",
+  "ranking_method": "blind_borda",
+  "rankings": [
+    {
+      "judge": "J1",
+      "ranking": ["AB", "B", "A"],
+      "rationale": "AB adds the needed literature handoff and power-analysis assumptions while preserving the original compact flow."
+    },
+    {
+      "judge": "J2",
+      "ranking": ["B", "AB", "A"],
+      "rationale": "B makes power-analysis assumptions a separate step, which is clearer for that task."
+    },
+    {
+      "judge": "J3",
+      "ranking": ["AB", "B", "A"],
+      "rationale": "AB is more concise and avoids over-segmenting the workflow while fixing the same gaps."
+    }
+  ]
+}

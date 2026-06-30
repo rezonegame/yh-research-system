@@ -13,9 +13,10 @@ Use this skill for the research half of the system: turning a question into a gr
 1. Classify the request: intake, literature search, synthesis, hypothesis generation, study design, or delivery.
 2. Check `modules/` for the relevant preserved module.
 3. Define the research output before collecting evidence.
-4. Gather sources using the most authoritative available route.
-5. Synthesize findings with explicit gaps, uncertainties, and next actions.
-6. Hand off to `analysis-workflow` for data/statistical work or `evaluation-workflow` for critique.
+4. For hypothesis work, move from constructs to variables and empirical strategy.
+5. Gather sources using the most authoritative available route.
+6. Synthesize findings with explicit gaps, uncertainties, and next actions.
+7. Hand off to `analysis-workflow` for data/statistical work or `evaluation-workflow` for critique.
 
 ## Modules
 
@@ -24,6 +25,7 @@ Former standalone skills are preserved in `modules/` as internal modules. Read o
 ## Do Not
 
 - Do not write generated skills from here; use `skill-factory`.
+- Do not invent citations, sources, or evidence.
 - Do not perform quality gate review here; use `evaluation-workflow`.
 - Do not store research artifacts outside the user's requested project location unless asked.
 

@@ -1,13 +1,67 @@
-[
-  {
-    "id": 1,
-    "prompt": "请评价这篇论文的研究设计是否严谨",
-    "expected": "Uses scientific rigor criteria, identifies bias/confounding/measurement risks, and prioritizes findings."
-  },
-  {
-    "id": 2,
-    "prompt": "帮我审查这套课件有没有视觉和教学问题",
-    "expected": "Routes to slide QA, visual audit, pedagogy review, and proofreading criteria."
-  }
-]
-
+{
+  "schema_version": "1.0",
+  "skill": "evaluation-workflow",
+  "dataset_type": "skill-eval",
+  "items": [
+    {
+      "id": "evaluation-workflow-001",
+      "task_input": "请评价这篇论文的研究设计是否严谨",
+      "expected_behavior": "Use scientific rigor criteria, identify bias, confounding, measurement risks, and prioritize findings by severity.",
+      "rubric": "The response must state evaluation criteria before judging and lead with severity-ordered findings.",
+      "difficulty": "medium",
+      "category": "research-rigor-review",
+      "source": "golden",
+      "split": "holdout"
+    },
+    {
+      "id": "evaluation-workflow-002",
+      "task_input": "帮我审查这套课件有没有视觉和教学问题",
+      "expected_behavior": "Route to slide QA, visual audit, pedagogy review, and proofreading criteria, separating evidence-backed issues from preferences.",
+      "rubric": "The response must separate evidence-backed issues from preferences.",
+      "difficulty": "medium",
+      "category": "slide-qa",
+      "source": "golden",
+      "split": "train"
+    },
+    {
+      "id": "evaluation-workflow-003",
+      "task_input": "帮我写一段文献综述，主题是游戏化教学",
+      "expected_behavior": "Recognize this as generation or synthesis rather than critique and hand off to research-workflow.",
+      "rubric": "The response must route literature synthesis generation to research-workflow.",
+      "difficulty": "easy",
+      "category": "handoff-research",
+      "source": "golden",
+      "split": "routing"
+    },
+    {
+      "id": "evaluation-workflow-004",
+      "task_input": "这里有数据和R代码，帮我跑模型并解释结果",
+      "expected_behavior": "Recognize this as empirical analysis and hand off to analysis-workflow.",
+      "rubric": "The response must route model running and statistical interpretation to analysis-workflow.",
+      "difficulty": "easy",
+      "category": "handoff-analysis",
+      "source": "golden",
+      "split": "routing"
+    },
+    {
+      "id": "evaluation-workflow-005",
+      "task_input": "这篇文章总体挺好的，你先夸几句再说问题",
+      "expected_behavior": "Maintain review stance and lead with serious issues before praise or summary.",
+      "rubric": "The response must not praise before listing serious issues when issues are requested.",
+      "difficulty": "hard",
+      "category": "review-posture",
+      "source": "golden",
+      "split": "holdout"
+    },
+    {
+      "id": "evaluation-workflow-006",
+      "task_input": "请直接帮我重写这篇论文，不用评价",
+      "expected_behavior": "Avoid rewriting unless asked within scope; clarify that evaluation-workflow is for critique or route to writing workflow if available.",
+      "rubric": "The response must not perform a rewrite under evaluation-workflow unless explicitly reframed after critique or routed appropriately.",
+      "difficulty": "medium",
+      "category": "non-trigger",
+      "source": "golden",
+      "split": "validation"
+    }
+  ]
+}

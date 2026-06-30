@@ -1,65 +1,117 @@
 {
-  "skill_name": "gamified-urban-renewal-design",
-  "evals": [
+  "schema_version": "1.0",
+  "skill": "gamified-urban-renewal-design",
+  "dataset_type": "skill-eval",
+  "items": [
     {
-      "id": 1,
-      "prompt": "我要为一个老城历史街区做城市更新方案，希望用游戏化共创让居民、商户和游客一起参与。请给我完整方案和需要产出的文档清单。",
-      "expected_output": "Uses heritage renewal mode, produces classified document set, includes stakeholder map, game design, workshop protocol, design translation, implementation roadmap, ethics and quality gate.",
-      "files": []
+      "id": "gamified-urban-renewal-001",
+      "task_input": "我要为一个老城历史街区做城市更新方案，希望用游戏化共创让居民、商户和游客一起参与。请给我完整方案和需要产出的文档清单。",
+      "expected_behavior": "Use heritage renewal mode, produce a classified document set, and include stakeholder map, game design, workshop protocol, design translation, implementation roadmap, ethics, and quality gate.",
+      "rubric": "The response must include both participatory game design and design-translation/implementation outputs.",
+      "difficulty": "hard",
+      "category": "heritage-renewal",
+      "source": "golden",
+      "split": "holdout"
     },
     {
-      "id": 2,
-      "prompt": "我们想用 Minecraft 给一个社区公园做参与式设计工作坊，参与者有小学生、老人、附近商户和街道办。请设计完整流程、物料、主持安排和后续如何转成设计方案。",
-      "expected_output": "Uses Block by Block/Minecraft workflow with planning, workshop, implementation phases; includes consent, accessibility, representative sample, site walk, shared vision, training, co-design, presentation, prioritization, expert translation and validation.",
-      "files": []
+      "id": "gamified-urban-renewal-002",
+      "task_input": "我们想用 Minecraft 给一个社区公园做参与式设计工作坊，参与者有小学生、老人、附近商户和街道办。请设计完整流程、物料、主持安排和后续如何转成设计方案。",
+      "expected_behavior": "Use Block by Block or Minecraft workflow with planning, workshop, implementation phases, consent, accessibility, representative sample, site walk, shared vision, training, co-design, presentation, prioritization, expert translation, and validation.",
+      "rubric": "The response must include expert translation and validation after the workshop.",
+      "difficulty": "hard",
+      "category": "minecraft-workshop",
+      "source": "golden",
+      "split": "validation"
     },
     {
-      "id": 3,
-      "prompt": "给一个15分钟社区更新项目设计一个低成本桌面游戏，用来识别居民对服务设施、步行、骑行和停车的真实取舍。",
-      "expected_output": "Uses analogue neighbourhood trade-off game; includes personas, service tiles, budget/space constraints, action rules, satisfaction scoring, debrief, translation matrix and warnings about oversimplification.",
-      "files": []
+      "id": "gamified-urban-renewal-003",
+      "task_input": "给一个15分钟社区更新项目设计一个低成本桌面游戏，用来识别居民对服务设施、步行、骑行和停车的真实取舍。",
+      "expected_behavior": "Use analogue neighbourhood trade-off game with personas, service tiles, budget/space constraints, action rules, satisfaction scoring, debrief, translation matrix, and oversimplification warnings.",
+      "rubric": "The response must include a translation matrix from game choices to planning implications.",
+      "difficulty": "medium",
+      "category": "analogue-tradeoff-game",
+      "source": "golden",
+      "split": "train"
     },
     {
-      "id": 4,
-      "prompt": "我有GIS和OpenStreetMap数据，想做一个低成本数字孪生+游戏引擎的城市更新评估工具，但预算有限。请判断是否值得做，并给出方案。",
-      "expected_output": "Uses digital twin simulation mode; evaluates decision value, data layer, design layer, game layer, pilot layer, cost/privacy/legal constraints, and offers analogue or hybrid fallback.",
-      "files": []
+      "id": "gamified-urban-renewal-004",
+      "task_input": "我有GIS和OpenStreetMap数据，想做一个低成本数字孪生+游戏引擎的城市更新评估工具，但预算有限。请判断是否值得做，并给出方案。",
+      "expected_behavior": "Use digital twin simulation mode, evaluate decision value, data, design, game, pilot layers, cost/privacy/legal constraints, and offer analogue or hybrid fallback.",
+      "rubric": "The response must assess whether the digital tool is worth building before proposing the solution.",
+      "difficulty": "hard",
+      "category": "digital-twin-simulation",
+      "source": "golden",
+      "split": "validation"
     },
     {
-      "id": 5,
-      "prompt": "请审查这个游戏化城市设计方案是否只是表面热闹：居民玩卡牌投票，设计单位最后自己做方案。给出问题和修复建议。",
-      "expected_output": "Uses quality gate/review stance; flags tokenism, missing implementation path, weak translation, overreliance on voting, and suggests repair loop with expert translation, validation and governance closure.",
-      "files": []
+      "id": "gamified-urban-renewal-005",
+      "task_input": "请审查这个游戏化城市设计方案是否只是表面热闹：居民玩卡牌投票，设计单位最后自己做方案。给出问题和修复建议。",
+      "expected_behavior": "Use quality gate/review stance, flag tokenism, missing implementation path, weak translation, overreliance on voting, and suggest repair loop with expert translation, validation, and governance closure.",
+      "rubric": "The response must identify tokenism or weak translation and propose a repair loop.",
+      "difficulty": "hard",
+      "category": "quality-gate-review",
+      "source": "golden",
+      "split": "holdout"
     },
     {
-      "id": 6,
-      "prompt": "我们要把一个有老厂房、地方小吃和居民记忆的街区做成文旅型城市更新项目，但不想变成网红打卡和过度商业化。请用游戏化方法做完整方案。",
-      "expected_output": "Uses cultural-tourism activation layer; includes local narrative, resident memory, visitor journey, business ecosystem, carrying capacity, benefit-sharing, anti-over-commercialization safeguards, game/workshop mechanics and final masterplan outputs.",
-      "files": []
+      "id": "gamified-urban-renewal-006",
+      "task_input": "我们要把一个有老厂房、地方小吃和居民记忆的街区做成文旅型城市更新项目，但不想变成网红打卡和过度商业化。请用游戏化方法做完整方案。",
+      "expected_behavior": "Use cultural-tourism activation layer with local narrative, resident memory, visitor journey, business ecosystem, carrying capacity, benefit-sharing, anti-over-commercialization safeguards, game/workshop mechanics, and final masterplan outputs.",
+      "rubric": "The response must include anti-over-commercialization safeguards and benefit-sharing or carrying-capacity controls.",
+      "difficulty": "hard",
+      "category": "cultural-tourism-activation",
+      "source": "golden",
+      "split": "validation"
     },
     {
-      "id": 7,
-      "prompt": "A historic commercial block wants a publish-ready gamified cultural-tourism route, but we do not yet have the official guide map, full merchant list, heritage open boundaries, or resident interviews. What should the skill produce and what must be labeled as missing?",
-      "expected_output": "Creates a missing-material ledger, separates verified facts from working assumptions, produces an internal-ready scaffold rather than claiming publish-ready status, and lists official maps, merchant list, heritage boundaries, resident memory consent, and image permissions as must-request materials.",
-      "files": []
+      "id": "gamified-urban-renewal-007",
+      "task_input": "A historic commercial block wants a publish-ready gamified cultural-tourism route, but we do not yet have the official guide map, full merchant list, heritage open boundaries, or resident interviews. What should the skill produce and what must be labeled as missing?",
+      "expected_behavior": "Create a missing-material ledger, separate verified facts from working assumptions, produce an internal-ready scaffold rather than claiming publish-ready status, and list official maps, merchant list, heritage boundaries, resident memory consent, and image permissions as must-request materials.",
+      "rubric": "The response must not claim publish-ready status when required materials are missing.",
+      "difficulty": "hard",
+      "category": "material-gap-handling",
+      "source": "golden",
+      "split": "holdout"
     },
     {
-      "id": 8,
-      "prompt": "Design a low-staff, low-equipment gamified visitor system for a lived-in heritage block. It should use local culture and merchant participation, but shop staff cannot explain complex rules and residents worry about privacy.",
-      "expected_output": "Uses lightweight-local-ops logic with paper passport/stamp/QR/task cards, merchant burden levels, return loops, privacy safeguards, resident memory consent levels, carrying-capacity triggers, and operational-lightness scoring.",
-      "files": []
+      "id": "gamified-urban-renewal-008",
+      "task_input": "Design a low-staff, low-equipment gamified visitor system for a lived-in heritage block. It should use local culture and merchant participation, but shop staff cannot explain complex rules and residents worry about privacy.",
+      "expected_behavior": "Use lightweight-local-ops logic with paper passport, stamp, QR, task cards, merchant burden levels, return loops, privacy safeguards, resident memory consent levels, carrying-capacity triggers, and operational-lightness scoring.",
+      "rubric": "The response must reduce operational burden and include privacy safeguards.",
+      "difficulty": "medium",
+      "category": "lightweight-local-ops",
+      "source": "golden",
+      "split": "validation"
     },
     {
-      "id": 9,
-      "prompt": "We want to use resident memories in a playful heritage route, but all we have are media articles and second-hand anecdotes. Please create a resident memory protocol and say what cannot be used yet.",
-      "expected_output": "Refuses to invent resident memory, creates interview groups, consent levels, memory cards, transformation rules, review process, and marks public anecdotes as research clues rather than publishable route content.",
-      "files": []
+      "id": "gamified-urban-renewal-009",
+      "task_input": "We want to use resident memories in a playful heritage route, but all we have are media articles and second-hand anecdotes. Please create a resident memory protocol and say what cannot be used yet.",
+      "expected_behavior": "Refuse to invent resident memory, create interview groups, consent levels, memory cards, transformation rules, review process, and mark public anecdotes as research clues rather than publishable route content.",
+      "rubric": "The response must refuse to treat second-hand anecdotes as publishable resident memory.",
+      "difficulty": "hard",
+      "category": "resident-memory-protocol",
+      "source": "golden",
+      "split": "holdout"
     },
     {
-      "id": 10,
-      "prompt": "A client insists on AR badges and a leaderboard for an urban renewal campaign. The budget is small, target users include elders and families, and there is no maintenance team. Audit the idea and redesign it.",
-      "expected_output": "Applies smallest adequate medium principle, questions points/badges/leaderboards, replaces app-first mechanics with low-tech route/passport/stamp/QR alternatives unless decision value justifies digital tools, and names staff, maintenance, accessibility, and data risks.",
-      "files": []
+      "id": "gamified-urban-renewal-010",
+      "task_input": "A client insists on AR badges and a leaderboard for an urban renewal campaign. The budget is small, target users include elders and families, and there is no maintenance team. Audit the idea and redesign it.",
+      "expected_behavior": "Apply smallest adequate medium principle, question points/badges/leaderboards, replace app-first mechanics with low-tech route/passport/stamp/QR alternatives unless decision value justifies digital tools, and name staff, maintenance, accessibility, and data risks.",
+      "rubric": "The response must challenge AR badges/leaderboard when they conflict with budget, accessibility, and maintenance constraints.",
+      "difficulty": "hard",
+      "category": "smallest-adequate-medium",
+      "source": "golden",
+      "split": "validation"
+    },
+    {
+      "id": "gamified-urban-renewal-011",
+      "task_input": "我只想做一个30分钟纸笔桌游，不涉及真实街区实施，主题借用城市更新就行。",
+      "expected_behavior": "Recognize this as a tabletop game design task and route to boardgame-design-methodology.",
+      "rubric": "The response must route pure tabletop game design to boardgame-design-methodology.",
+      "difficulty": "easy",
+      "category": "handoff-boardgame",
+      "source": "golden",
+      "split": "routing"
     }
   ]
 }

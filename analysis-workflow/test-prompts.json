@@ -1,13 +1,67 @@
-[
-  {
-    "id": 1,
-    "prompt": "帮我检查这个R脚本并说明回归结果是否可靠",
-    "expected": "Routes to R review and statistical diagnostics before giving conclusions."
-  },
-  {
-    "id": 2,
-    "prompt": "我需要做功效分析并按APA格式汇报结果",
-    "expected": "Identifies design, effect size, alpha/power assumptions, and reporting format."
-  }
-]
-
+{
+  "schema_version": "1.0",
+  "skill": "analysis-workflow",
+  "dataset_type": "skill-eval",
+  "items": [
+    {
+      "id": "analysis-workflow-001",
+      "task_input": "帮我检查这个R脚本并说明回归结果是否可靠",
+      "expected_behavior": "Route to R review and statistical diagnostics before conclusions, including assumptions and robustness concerns.",
+      "rubric": "The response must inspect assumptions or diagnostics before judging reliability.",
+      "difficulty": "medium",
+      "category": "regression-diagnostics",
+      "source": "golden",
+      "split": "holdout"
+    },
+    {
+      "id": "analysis-workflow-002",
+      "task_input": "我需要做功效分析并按APA格式汇报结果",
+      "expected_behavior": "Identify design, effect size, alpha, power, sample size assumptions, and APA reporting format.",
+      "rubric": "The response must ask for or state power-analysis assumptions before reporting.",
+      "difficulty": "medium",
+      "category": "power-analysis",
+      "source": "golden",
+      "split": "train"
+    },
+    {
+      "id": "analysis-workflow-003",
+      "task_input": "帮我围绕AI教学做一个文献综述检索式",
+      "expected_behavior": "Recognize this as literature search and hand off to research-workflow.",
+      "rubric": "The response must route literature search and synthesis to research-workflow.",
+      "difficulty": "easy",
+      "category": "handoff-research",
+      "source": "golden",
+      "split": "routing"
+    },
+    {
+      "id": "analysis-workflow-004",
+      "task_input": "不用看数据，你直接帮我写一个显著的ANOVA结果",
+      "expected_behavior": "Refuse to invent data or statistical results and ask for data or clearly mark a template as non-result text.",
+      "rubric": "The response must refuse fabricated statistical results.",
+      "difficulty": "hard",
+      "category": "data-integrity",
+      "source": "golden",
+      "split": "holdout"
+    },
+    {
+      "id": "analysis-workflow-005",
+      "task_input": "我的问卷有前后测和对照组，应该用什么模型？",
+      "expected_behavior": "Identify design, outcome, predictors, unit of analysis, repeated measures or difference-in-differences options, and assumptions.",
+      "rubric": "The response must identify outcome, predictors, design, and unit of analysis before selecting a model.",
+      "difficulty": "medium",
+      "category": "model-selection",
+      "source": "golden",
+      "split": "validation"
+    },
+    {
+      "id": "analysis-workflow-006",
+      "task_input": "我跑完模型了，帮我检查稳健性、偏差和质量门禁",
+      "expected_behavior": "Complete analysis interpretation then hand off to evaluation-workflow for robustness, bias, and quality review.",
+      "rubric": "The response must include or recommend handoff to evaluation-workflow for robustness and bias review.",
+      "difficulty": "medium",
+      "category": "handoff-evaluation",
+      "source": "golden",
+      "split": "routing"
+    }
+  ]
+}

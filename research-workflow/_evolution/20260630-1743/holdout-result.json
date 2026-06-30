@@ -1,0 +1,21 @@
+{
+  "run_id": "20260630-1743",
+  "target_skill": "research-workflow",
+  "candidate": "AB",
+  "status": "pass",
+  "items": [
+    {
+      "id": "research-workflow-001",
+      "rubric": "The response must define the review output before collecting evidence.",
+      "result": "pass",
+      "evidence": "Candidate AB preserves the rule to define the research output before collecting evidence."
+    },
+    {
+      "id": "research-workflow-005",
+      "rubric": "The response must refuse fabricated citations.",
+      "result": "pass",
+      "evidence": "Candidate AB adds an explicit prohibition on inventing citations, sources, or evidence."
+    }
+  ],
+  "regression": false
+}

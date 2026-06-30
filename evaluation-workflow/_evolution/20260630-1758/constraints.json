@@ -1,0 +1,23 @@
+{
+  "run_id": "20260630-1758",
+  "target_skill": "evaluation-workflow",
+  "baseline_candidate": "A",
+  "max_growth": 0.2,
+  "candidates": {
+    "A": {
+      "structure": "pass",
+      "growth": "0.0%",
+      "status": "valid"
+    },
+    "B": {
+      "structure": "pass",
+      "growth": "18.3%",
+      "status": "valid"
+    },
+    "AB": {
+      "structure": "pass",
+      "growth": "16.3%",
+      "status": "valid"
+    }
+  }
+}

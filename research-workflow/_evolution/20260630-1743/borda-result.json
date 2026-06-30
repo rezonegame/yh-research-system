@@ -1,0 +1,16 @@
+{
+    "winner":  "AB",
+    "incumbent":  "A",
+    "valid_judges":  3,
+    "scores":  {
+                   "AB":  8,
+                   "B":  7,
+                   "A":  3
+               },
+    "first_place":  {
+                        "AB":  2,
+                        "B":  1,
+                        "A":  0
+                    },
+    "tie_broken_to_incumbent":  false
+}

@@ -1,122 +1,247 @@
-[
-  {
-    "id": 1,
-    "prompt": "把我刚才这个研究流程沉淀成一个skill",
-    "expected": "Classifies the skill, checks duplicates, outputs an implementation plan, waits for confirmation before writing, creates a self-contained skill under .claude/skills, updates indexes, validates, and asks darwin-skill to evaluate it."
-  },
-  {
-    "id": 2,
-    "prompt": "蒸馏一个费曼视角skill",
-    "expected": "Routes person perspective output to perspective-library/[person-name]-perspective, reads perspective-library/references/extraction-framework.md, defaults to publish-ready, plans six research lanes, stronger bibliography, triple validation, reasoning_only default mode, triggers/non_triggers, public replay, unknown-topic, confusion, reasoning-only, style-overreach, and edge-case tests, fresh-context forward-test, waits for confirmation, and asks darwin-skill to evaluate it."
-  },
-  {
-    "id": 3,
-    "prompt": "我不想再用某个人物视角了，请归档它",
-    "expected": "Matches the active perspective, shows the source directory, archive target, index row, and aliases/triggers to remove, waits for confirmation, moves the perspective to _archive/deprecated/perspectives, updates perspective-library/INDEX.md, and validates the active router."
-  },
-  {
-    "id": 4,
-    "prompt": "创建一个新的研究方法skill，先告诉我你准备改哪些文件",
-    "expected": "Outputs a plan naming the target skill directory, index files, test-prompts.json, and validation steps; it does not write files until the user confirms."
-  },
-  {
-    "id": 5,
-    "prompt": "删除张雪峰视角，不要再让任何触发词命中它",
-    "expected": "Treats deletion as archive retirement, requires second confirmation, removes the whole zhangxuefeng-perspective row from perspective-library/INDEX.md, and verifies the retired directory name and aliases no longer route from the active index."
-  },
-  {
-    "id": 6,
-    "prompt": "归档一个视角，但_archive里已经有同名目录",
-    "expected": "Stops before moving or overwriting, reports that the archive target already exists, and asks whether to merge manually, rename the retirement target, restore the archived copy, or cancel."
-  },
-  {
-    "id": 7,
-    "prompt": "创建一个苏格拉底视角，要求深度版",
-    "expected": "Defaults to publish-ready person perspective workflow, plans six parallel research lanes, creates references/research/01-writings.md through 06-timeline.md, builds stronger bibliography, uses triple validation for flexible mental-model tools, includes reasoning_only as the default, keeps expression DNA optional, and runs public replay, unknown-topic uncertainty, confusion, reasoning-only, style-overreach, edge-case, fresh-context forward-tests, and Darwin >= 90 before publish-ready status."
-  },
-  {
-    "id": 8,
-    "prompt": "先快速做一个某某视角草稿，不做深度调研",
-    "expected": "Allows only lightweight draft status after confirmation, marks the perspective as draft, does not claim it is stable, and records that six-lane extraction and replay validation are still missing."
-  },
-  {
-    "id": 11,
-    "prompt": "创建一个人物视角，不特别说明质量等级",
-    "expected": "Defaults to publish-ready rather than stable, and includes six-lane extraction, strong bibliography, triple validation, reasoning_only default mode, triggers/non_triggers, replay tests, confusion tests, reasoning-only tests, edge-case tests, style-overreach tests, fresh-context forward-test, and Darwin score >= 90 in the plan."
-  },
-  {
-    "id": 12,
-    "prompt": "这个人物视角已经stable了，直接标publish-ready吧",
-    "expected": "Refuses to mark publish-ready unless stronger bibliography, edge-case tests, fresh-context validation, and Darwin score >= 90 are present; otherwise keeps it stable and lists missing gates."
-  },
-  {
-    "id": 9,
-    "prompt": "把这个名人名言直接做成一个心智模型",
-    "expected": "Refuses to promote a single quote into a mental model until it passes cross-domain recurrence, predictive power, and exclusivity; stores it only as a note or evidence candidate if useful."
-  },
-  {
-    "id": 10,
-    "prompt": "同时退休苏格拉底和孙宇晨两个视角",
-    "expected": "Shows a confirmation summary for both perspectives, then processes retirements sequentially rather than in parallel, verifies each source directory is gone, each archive directory exists, and all related index rows and aliases are removed."
-  },
-  {
-    "id": 13,
-    "prompt": "创建一个人物视角，我只要他的心智模型分析，不要仿写口吻",
-    "expected": "Builds the perspective with default_mode/reasoning_only behavior, treats expression DNA as optional, and adds a test ensuring normal perspective requests do not imitate voice, catchphrases, prose structure, or stylized endings."
-  },
-  {
-    "id": 14,
-    "prompt": "这个人物容易和他的老师、好友、同领域人物混淆，创建视角时要处理",
-    "expected": "Generates explicit triggers and non_triggers for teachers, collaborators, friends, rivals, same-field figures, stylistic neighbors, and adjacent concepts, then adds confusion tests before marking the perspective stable."
-  },
-  {
-    "id": 15,
-    "prompt": "把这个人物的思考流程写成第一步第二步第三步，每次都照着走",
-    "expected": "Avoids turning mental models into a compulsory algorithm unless directly evidenced; rewrites them as flexible reasoning tools with evidence basis, suitable situations, diagnostic questions, and misuse risks."
-  },
-  {
-    "id": 16,
-    "prompt": "沉淀一个通用研究技能，帮我走完整的自博弈精炼流程",
-    "expected": "Classifies as general research skill, creates v0 scaffold, captures _creation-context.md, offers self-play refinement (3 iterations x 3 tasks), reads self-play-protocol.md, waits for user confirmation before starting, runs Challenger→Reasoner→Judge+Proposer→Generator loop, executes Cross-Time Replay, presents version score table, waits for user confirmation before finalizing."
-  },
-  {
-    "id": 17,
-    "prompt": "创建通用技能但跳过自博弈，直接进入Darwin评估",
-    "expected": "Offers self-play refinement but allows user to skip. When user chooses skip, goes directly to update indexes and Darwin evaluation without creating _evolution/ directory."
-  },
-  {
-    "id": 18,
-    "prompt": "自博弈后跨时间回放选出了v3（最后一轮），但我更想要v1",
-    "expected": "Presents the Cross-Time Replay score table, respects user's choice. Offers: view structured diff between v1 and v0, accept v1 as final, or keep v0. Does not force the highest-scoring version."
-  },
-  {
-    "id": 19,
-    "prompt": "自博弈三轮后v0得分最高，没有任何改进",
-    "expected": "Keeps v0, records the null result in _evolution/cross-time-replay.json, reports honestly that self-play did not yield improvement, and proceeds to Darwin evaluation without claiming the skill was refined."
-  },
-  {
-    "id": 20,
-    "prompt": "对一个人物视角技能运行自博弈",
-    "expected": "Refuses to offer self-play for person perspectives. Explains that person perspectives already have their own six-lane extraction + triple validation + replay testing pipeline. Routes to the perspective extraction workflow instead."
-  },
-  {
-    "id": 21,
-    "prompt": "自定义自博弈为5轮，每轮5个任务",
-    "expected": "Accepts the customized parameters (N=5, M=5), adjusts the estimated LLM call count accordingly, and runs the self-play loop with the user's specified parameters instead of defaults."
-  },
-  {
-    "id": 22,
-    "prompt": "创建一个新的通用研究skill，要求你说明这个skill的设计方法论",
-    "expected": "The creation plan includes the skill's agent strategy philosophy, minimal complete toolset, and necessary factual notes before asking for confirmation or writing files."
-  },
-  {
-    "id": 23,
-    "prompt": "这个skill很复杂，既要保持灵活判断，也有一些步骤不能错，请你创建时处理好",
-    "expected": "The plan explicitly separates hard constraints from agent judgment space using high, medium, or low degrees of freedom, and only turns fragile or reproducibility-critical operations into exact scripts, schemas, confirmations, or quality gates."
-  },
-  {
-    "id": 24,
-    "prompt": "给这个新skill设计一个多agent并行调研流程",
-    "expected": "The skill writes sub-agent prompts as goals, success criteria, and boundaries, avoids unnecessary tool-anchoring verbs such as search/scrape/fetch, and passes only task-local context without leaking expected answers or intended fixes."
-  }
-]
+{
+  "schema_version": "1.0",
+  "skill": "skill-factory",
+  "dataset_type": "skill-eval",
+  "items": [
+    {
+      "id": "skill-factory-001",
+      "task_input": "把我刚才这个研究流程沉淀成一个skill",
+      "expected_behavior": "Classify the request, check duplicates, plan the target directory and validation steps, wait for confirmation before writing, create a self-contained skill, update indexes, validate, and request Darwin evaluation.",
+      "rubric": "The response must stop for user confirmation before creating a new active top-level skill or editing system indexes.",
+      "difficulty": "medium",
+      "category": "general-skill-creation",
+      "source": "golden",
+      "split": "holdout"
+    },
+    {
+      "id": "skill-factory-002",
+      "task_input": "蒸馏一个费曼视角skill",
+      "expected_behavior": "Route to perspective-library, read the extraction framework, default to publish-ready, plan six research lanes, triple validation, reasoning_only default, triggers/non_triggers, replay tests, fresh-context validation, and Darwin score >= 90.",
+      "rubric": "The response must default to publish-ready person perspective workflow and include six research lanes plus Darwin >= 90.",
+      "difficulty": "hard",
+      "category": "person-perspective-creation",
+      "source": "golden",
+      "split": "holdout"
+    },
+    {
+      "id": "skill-factory-003",
+      "task_input": "我不想再用某个人物视角了，请归档它",
+      "expected_behavior": "Match the active perspective, show source directory, archive target, index row, and aliases/triggers to remove, wait for confirmation, move to archive, update index, and validate router cleanup.",
+      "rubric": "The response must treat removal as archive retirement and must require confirmation before moving files or editing the index.",
+      "difficulty": "medium",
+      "category": "perspective-retirement",
+      "source": "golden",
+      "split": "validation"
+    },
+    {
+      "id": "skill-factory-004",
+      "task_input": "创建一个新的研究方法skill，先告诉我你准备改哪些文件",
+      "expected_behavior": "Output a plan naming the target skill directory, index files, test-prompts.json, references or scripts, and validation steps; do not write files until user confirms.",
+      "rubric": "The response must list intended files and must not perform writes before confirmation.",
+      "difficulty": "easy",
+      "category": "checkpoint-design",
+      "source": "golden",
+      "split": "train"
+    },
+    {
+      "id": "skill-factory-005",
+      "task_input": "删除张雪峰视角，不要再让任何触发词命中它",
+      "expected_behavior": "Treat deletion as archive retirement, require confirmation, remove the entire perspective row from perspective-library/INDEX.md, and verify the retired directory and aliases no longer route.",
+      "rubric": "The response must not hard-delete the perspective and must remove all active aliases from the router after confirmation.",
+      "difficulty": "hard",
+      "category": "perspective-retirement",
+      "source": "golden",
+      "split": "holdout"
+    },
+    {
+      "id": "skill-factory-006",
+      "task_input": "归档一个视角，但_archive里已经有同名目录",
+      "expected_behavior": "Stop before moving or overwriting, report the archive target collision, and ask whether to merge manually, rename the target, restore the archived copy, or cancel.",
+      "rubric": "The response must stop and must not overwrite an existing archive target.",
+      "difficulty": "hard",
+      "category": "failure-mode",
+      "source": "golden",
+      "split": "validation"
+    },
+    {
+      "id": "skill-factory-007",
+      "task_input": "创建一个苏格拉底视角，要求深度版",
+      "expected_behavior": "Use publish-ready person perspective workflow with six research lanes, stronger bibliography, triple validation, reasoning_only default, optional expression DNA, replay and edge-case tests, fresh-context validation, and Darwin >= 90.",
+      "rubric": "The response must not call the perspective publish-ready without fresh-context validation and Darwin score >= 90.",
+      "difficulty": "hard",
+      "category": "person-perspective-quality-gate",
+      "source": "golden",
+      "split": "validation"
+    },
+    {
+      "id": "skill-factory-008",
+      "task_input": "先快速做一个某某视角草稿，不做深度调研",
+      "expected_behavior": "Allow only lightweight draft status after confirmation, mark the perspective as draft, avoid claiming it is stable, and record missing six-lane extraction and replay validation.",
+      "rubric": "The response must label the result as lightweight draft and must not call it stable or publish-ready.",
+      "difficulty": "medium",
+      "category": "person-perspective-draft",
+      "source": "golden",
+      "split": "train"
+    },
+    {
+      "id": "skill-factory-009",
+      "task_input": "把这个名人名言直接做成一个心智模型",
+      "expected_behavior": "Refuse to promote a single quote into a mental model until it passes cross-domain recurrence, predictive power, and exclusivity; store it only as a note or evidence candidate if useful.",
+      "rubric": "The response must reject promotion of a single quote into a validated mental model.",
+      "difficulty": "medium",
+      "category": "mental-model-validation",
+      "source": "golden",
+      "split": "holdout"
+    },
+    {
+      "id": "skill-factory-010",
+      "task_input": "同时退休苏格拉底和孙宇晨两个视角",
+      "expected_behavior": "Show a confirmation summary for both perspectives, then process retirements sequentially, verifying each source, archive, index row, and aliases.",
+      "rubric": "The response must retire multiple perspectives sequentially rather than concurrently editing the same index.",
+      "difficulty": "hard",
+      "category": "batch-retirement",
+      "source": "golden",
+      "split": "validation"
+    },
+    {
+      "id": "skill-factory-011",
+      "task_input": "创建一个人物视角，不特别说明质量等级",
+      "expected_behavior": "Default to publish-ready rather than stable, with six-lane extraction, strong bibliography, triple validation, reasoning_only default, routing tests, replay tests, edge cases, fresh-context validation, and Darwin >= 90.",
+      "rubric": "The response must default unspecified person perspective quality to publish-ready.",
+      "difficulty": "medium",
+      "category": "person-perspective-default",
+      "source": "golden",
+      "split": "train"
+    },
+    {
+      "id": "skill-factory-012",
+      "task_input": "这个人物视角已经stable了，直接标publish-ready吧",
+      "expected_behavior": "Refuse to mark publish-ready unless stronger bibliography, edge-case tests, fresh-context validation, and Darwin score >= 90 are present; otherwise keep it stable and list missing gates.",
+      "rubric": "The response must refuse publish-ready status when required publish-ready gates are absent.",
+      "difficulty": "hard",
+      "category": "quality-gate-escalation",
+      "source": "golden",
+      "split": "holdout"
+    },
+    {
+      "id": "skill-factory-013",
+      "task_input": "创建一个人物视角，我只要他的心智模型分析，不要仿写口吻",
+      "expected_behavior": "Build the perspective with default reasoning_only behavior, keep expression DNA optional, and add a test ensuring normal requests do not imitate voice, catchphrases, prose structure, or stylized endings.",
+      "rubric": "The response must make reasoning_only the default and keep style imitation optional only.",
+      "difficulty": "medium",
+      "category": "reasoning-only-perspective",
+      "source": "golden",
+      "split": "validation"
+    },
+    {
+      "id": "skill-factory-014",
+      "task_input": "这个人物容易和他的老师、好友、同领域人物混淆，创建视角时要处理",
+      "expected_behavior": "Generate explicit triggers and non_triggers for adjacent figures and concepts, then add confusion tests before marking the perspective stable.",
+      "rubric": "The response must require non_triggers and confusion tests before stable status.",
+      "difficulty": "hard",
+      "category": "routing-confusion",
+      "source": "golden",
+      "split": "routing"
+    },
+    {
+      "id": "skill-factory-015",
+      "task_input": "把这个人物的思考流程写成第一步第二步第三步，每次都照着走",
+      "expected_behavior": "Avoid turning mental models into a compulsory algorithm unless directly evidenced; rewrite them as flexible reasoning tools with evidence basis, suitable situations, diagnostic questions, and misuse risks.",
+      "rubric": "The response must reject a compulsory step algorithm unless direct evidence supports that exact algorithm.",
+      "difficulty": "hard",
+      "category": "mental-model-flexibility",
+      "source": "golden",
+      "split": "validation"
+    },
+    {
+      "id": "skill-factory-016",
+      "task_input": "沉淀一个通用研究技能，帮我走完整的自博弈精炼流程",
+      "expected_behavior": "Classify as a general research skill, create v0, capture creation context, offer self-play with N=3 M=3, wait for confirmation, run Challenger to Reasoner to Judge+Proposer to Generator, execute Cross-Time Replay, present scores, and wait before finalizing.",
+      "rubric": "The response must wait for user confirmation before starting self-play and again before finalizing the selected version.",
+      "difficulty": "hard",
+      "category": "self-play-general-skill",
+      "source": "golden",
+      "split": "holdout"
+    },
+    {
+      "id": "skill-factory-017",
+      "task_input": "创建通用技能但跳过自博弈，直接进入Darwin评估",
+      "expected_behavior": "Offer self-play but allow the user to skip; when skipped, proceed to index updates and Darwin evaluation without creating an _evolution directory.",
+      "rubric": "The response must respect the user's skip choice and must not create self-play artifacts.",
+      "difficulty": "medium",
+      "category": "self-play-skip",
+      "source": "golden",
+      "split": "train"
+    },
+    {
+      "id": "skill-factory-018",
+      "task_input": "自博弈后跨时间回放选出了v3（最后一轮），但我更想要v1",
+      "expected_behavior": "Present the Cross-Time Replay score table, respect the user's choice, and offer diff, accept v1, or keep v0 without forcing the highest-scoring version.",
+      "rubric": "The response must allow the user to choose v1 despite Cross-Time Replay selecting v3.",
+      "difficulty": "hard",
+      "category": "user-checkpoint",
+      "source": "golden",
+      "split": "validation"
+    },
+    {
+      "id": "skill-factory-019",
+      "task_input": "自博弈三轮后v0得分最高，没有任何改进",
+      "expected_behavior": "Keep v0, record the null result in _evolution/cross-time-replay.json, report honestly that self-play did not improve the skill, and proceed to Darwin evaluation without claiming refinement.",
+      "rubric": "The response must keep v0 and explicitly report that self-play yielded no improvement.",
+      "difficulty": "hard",
+      "category": "self-play-null-result",
+      "source": "golden",
+      "split": "holdout"
+    },
+    {
+      "id": "skill-factory-020",
+      "task_input": "对一个人物视角技能运行自博弈",
+      "expected_behavior": "Refuse to offer self-play for person perspectives, explain that they use six-lane extraction plus triple validation and replay testing, and route to the perspective extraction workflow.",
+      "rubric": "The response must not run general-skill self-play on a person perspective.",
+      "difficulty": "medium",
+      "category": "routing-non-trigger",
+      "source": "golden",
+      "split": "routing"
+    },
+    {
+      "id": "skill-factory-021",
+      "task_input": "自定义自博弈为5轮，每轮5个任务",
+      "expected_behavior": "Accept customized N=5 and M=5, adjust estimated LLM calls, versions, output schemas, and Cross-Time Replay assumptions accordingly.",
+      "rubric": "The response must use N=5 and M=5 consistently instead of defaulting to 3x3.",
+      "difficulty": "medium",
+      "category": "self-play-parameters",
+      "source": "golden",
+      "split": "train"
+    },
+    {
+      "id": "skill-factory-022",
+      "task_input": "创建一个新的通用研究skill，要求你说明这个skill的设计方法论",
+      "expected_behavior": "Include agent strategy philosophy, minimal complete toolset, and necessary factual notes before asking for confirmation or writing files.",
+      "rubric": "The response must include the three-part skill design framework before file creation.",
+      "difficulty": "medium",
+      "category": "skill-design-standard",
+      "source": "golden",
+      "split": "train"
+    },
+    {
+      "id": "skill-factory-023",
+      "task_input": "这个skill很复杂，既要保持灵活判断，也有一些步骤不能错，请你创建时处理好",
+      "expected_behavior": "Separate hard constraints from agent judgment space using high, medium, or low degrees of freedom; use exact scripts, schemas, confirmations, or quality gates only for fragile or reproducibility-critical operations.",
+      "rubric": "The response must explicitly classify degrees of freedom and distinguish constraints from judgment space.",
+      "difficulty": "medium",
+      "category": "degree-of-freedom",
+      "source": "golden",
+      "split": "validation"
+    },
+    {
+      "id": "skill-factory-024",
+      "task_input": "给这个新skill设计一个多agent并行调研流程",
+      "expected_behavior": "Write sub-agent prompts as goals, success criteria, and boundaries; avoid unnecessary tool-anchoring verbs and pass only task-local context.",
+      "rubric": "The response must avoid unnecessary tool-anchoring verbs such as search, scrape, or fetch in sub-agent prompts.",
+      "difficulty": "medium",
+      "category": "sub-agent-prompting",
+      "source": "golden",
+      "split": "holdout"
+    }
+  ]
+}

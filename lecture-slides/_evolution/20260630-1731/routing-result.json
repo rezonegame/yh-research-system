@@ -1,0 +1,15 @@
+{
+  "run_id": "20260630-1731",
+  "target_skill": "lecture-slides",
+  "candidate": "B",
+  "status": "pass",
+  "items": [
+    {
+      "id": "lecture-slides-003",
+      "rubric": "The response must route pure slide audit or critique to evaluation-workflow.",
+      "result": "pass",
+      "evidence": "Candidate B explicitly hands off requests that are only critique, visual review, or pedagogy review to evaluation-workflow."
+    }
+  ],
+  "routing_regression": false
+}

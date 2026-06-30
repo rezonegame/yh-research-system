@@ -1,0 +1,21 @@
+{
+  "run_id": "20260630-1758",
+  "target_skill": "evaluation-workflow",
+  "candidate": "AB",
+  "status": "pass",
+  "items": [
+    {
+      "id": "evaluation-workflow-001",
+      "rubric": "The response must state evaluation criteria before judging and lead with severity-ordered findings.",
+      "result": "pass",
+      "evidence": "Candidate AB preserves criteria-before-judging and severity ordering."
+    },
+    {
+      "id": "evaluation-workflow-005",
+      "rubric": "The response must not praise before listing serious issues when issues are requested.",
+      "result": "pass",
+      "evidence": "Candidate AB preserves the no-praise-before-serious-issues rule."
+    }
+  ],
+  "regression": false
+}

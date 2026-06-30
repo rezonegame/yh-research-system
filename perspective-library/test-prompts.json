@@ -1,17 +1,47 @@
-[
-  {
-    "id": 1,
-    "prompt": "用费曼视角帮我看看这个解释是不是只是在背概念",
-    "expected": "Matches Feynman aliases and loads feynman-perspective."
-  },
-  {
-    "id": 2,
-    "prompt": "我想找一个能帮助城市更新评审的视角",
-    "expected": "Recommends relevant urban/design perspectives from INDEX.md."
-  },
-  {
-    "id": 3,
-    "prompt": "我不需要费曼视角了，帮我停用它",
-    "expected": "Routes to skill-factory and follows the perspective retirement protocol instead of deleting directly."
-  }
-]
+{
+  "schema_version": "1.0",
+  "skill": "perspective-library",
+  "dataset_type": "skill-eval",
+  "items": [
+    {
+      "id": "perspective-library-001",
+      "task_input": "用费曼视角帮我看看这个解释是不是只是在背概念",
+      "expected_behavior": "Match Feynman aliases, load feynman-perspective, and use the perspective as a reasoning lens.",
+      "rubric": "The response must route to feynman-perspective rather than inventing a generic explanation style.",
+      "difficulty": "easy",
+      "category": "explicit-perspective-trigger",
+      "source": "golden",
+      "split": "holdout"
+    },
+    {
+      "id": "perspective-library-002",
+      "task_input": "我想找一个能帮助城市更新评审的视角",
+      "expected_behavior": "Recommend two or three relevant urban, design, or evaluation perspectives from INDEX.md when no exact person is named.",
+      "rubric": "The response must recommend candidates instead of pretending a single named perspective was requested.",
+      "difficulty": "medium",
+      "category": "candidate-recommendation",
+      "source": "golden",
+      "split": "validation"
+    },
+    {
+      "id": "perspective-library-003",
+      "task_input": "我不需要费曼视角了，帮我停用它",
+      "expected_behavior": "Route to skill-factory and follow perspective retirement protocol rather than deleting directly.",
+      "rubric": "The response must route retirement to skill-factory and must not archive/delete directly from perspective-library.",
+      "difficulty": "medium",
+      "category": "handoff-retirement",
+      "source": "golden",
+      "split": "routing"
+    },
+    {
+      "id": "perspective-library-004",
+      "task_input": "用一个我这里没有的人物视角分析这个商业策略",
+      "expected_behavior": "If the requested perspective does not exist, route to skill-factory to create it instead of inventing the person's view.",
+      "rubric": "The response must not invent a missing specific person's perspective.",
+      "difficulty": "hard",
+      "category": "missing-perspective",
+      "source": "golden",
+      "split": "holdout"
+    }
+  ]
+}

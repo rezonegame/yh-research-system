@@ -1,0 +1,22 @@
+{
+  "run_id": "20260630-1743",
+  "target_skill": "research-workflow",
+  "ranking_method": "blind_borda",
+  "rankings": [
+    {
+      "judge": "J1",
+      "ranking": ["AB", "B", "A"],
+      "rationale": "AB keeps the original concise structure while adding source-integrity and hypothesis-operationalization rules."
+    },
+    {
+      "judge": "J2",
+      "ranking": ["AB", "B", "A"],
+      "rationale": "AB is slightly more conservative than B and avoids broadening the no-invention rule into results, which belongs partly to analysis-workflow."
+    },
+    {
+      "judge": "J3",
+      "ranking": ["B", "AB", "A"],
+      "rationale": "B is strongest on anti-fabrication and empirical strategy, but both revised candidates improve the incumbent."
+    }
+  ]
+}

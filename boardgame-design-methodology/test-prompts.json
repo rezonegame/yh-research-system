@@ -1,37 +1,87 @@
-[
-  {
-    "id": 1,
-    "prompt": "我想设计一个30分钟的双人桌游，核心是卡牌驱动+工人放置，主题是城市更新。帮我做第一版设计brief和原型计划。",
-    "expected": "Routes to concept-to-prototype mode, reads broad methodology plus card and worker-placement references, captures constraints, defines core loop, smallest playable prototype, first playtest questions, and outputs a usable design brief."
-  },
-  {
-    "id": 2,
-    "prompt": "我的桌游测试者都说规则太复杂，新人教不动，但我觉得每个规则都有用。帮我诊断应该砍哪里。",
-    "expected": "Routes to design diagnosis mode, reads iteration optimization references, separates core loop from edge cases and subsystems, proposes small experiments and rule-removal tests rather than a full redesign."
-  },
-  {
-    "id": 3,
-    "prompt": "我的合作桌游里总有一个老玩家指挥所有人，其他人变成执行工具，怎么改？",
-    "expected": "Routes to cooperative mechanism references, identifies quarterback/alpha-player problem, proposes information, role, timing, communication, and responsibility design variants with targeted tests."
-  },
-  {
-    "id": 4,
-    "prompt": "我有一个卡牌+骰子的推手气游戏，某个策略胜率太高。请给我一套平衡性测试计划。",
-    "expected": "Routes to playtest and balance mode, reads dice, push-your-luck, external testing, and balance references, defines metrics, test groups, hypotheses, change log, and decision thresholds."
-  },
-  {
-    "id": 5,
-    "prompt": "我桌游机制已经稳定了，但美术方向不清楚，也不知道怎么和画师沟通。帮我整理一个美术brief。",
-    "expected": "Routes to art and production mode, reads art direction and artist collaboration references, separates functional readability, style direction, component priority, art brief, graphic design brief, copyright, revision, and handoff risks."
-  },
-  {
-    "id": 6,
-    "prompt": "帮我规划一个从稳定原型到Kickstarter众筹的路线，包含BGG和评测口碑。",
-    "expected": "Routes to publishing and marketing mode, reads Kickstarter, publishing, BGG, reviews, community, and publisher cases, assesses readiness and outputs staged roadmap with prerequisites, risks, and next actions."
-  },
-  {
-    "id": 7,
-    "prompt": "帮我做一节90分钟桌游设计课，主题是从灵感到纸笔原型。",
-    "expected": "Routes to teaching mode, reads inspiration and rapid prototyping references, defines learner output, activities, timing, examples, and assessment rubric."
-  }
-]
+{
+  "schema_version": "1.0",
+  "skill": "boardgame-design-methodology",
+  "dataset_type": "skill-eval",
+  "items": [
+    {
+      "id": "boardgame-design-001",
+      "task_input": "我想设计一个30分钟的双人桌游，核心是卡牌驱动+工人放置，主题是城市更新。帮我做第一版设计brief和原型计划。",
+      "expected_behavior": "Route to concept-to-prototype mode, read relevant methodology references, capture constraints, define core loop, smallest playable prototype, first playtest questions, and output a usable design brief.",
+      "rubric": "The response must include a smallest playable prototype and first playtest questions.",
+      "difficulty": "medium",
+      "category": "concept-to-prototype",
+      "source": "golden",
+      "split": "holdout"
+    },
+    {
+      "id": "boardgame-design-002",
+      "task_input": "我的桌游测试者都说规则太复杂，新人教不动，但我觉得每个规则都有用。帮我诊断应该砍哪里。",
+      "expected_behavior": "Route to design diagnosis mode, separate core loop from edge cases and subsystems, and propose small experiments and rule-removal tests rather than a full redesign.",
+      "rubric": "The response must propose rule-removal tests instead of immediately redesigning everything.",
+      "difficulty": "medium",
+      "category": "design-diagnosis",
+      "source": "golden",
+      "split": "validation"
+    },
+    {
+      "id": "boardgame-design-003",
+      "task_input": "我的合作桌游里总有一个老玩家指挥所有人，其他人变成执行工具，怎么改？",
+      "expected_behavior": "Route to cooperative mechanism references, identify quarterback/alpha-player problem, and propose information, role, timing, communication, and responsibility design variants with targeted tests.",
+      "rubric": "The response must name the quarterback or alpha-player problem and propose targeted tests.",
+      "difficulty": "medium",
+      "category": "cooperative-game-design",
+      "source": "golden",
+      "split": "train"
+    },
+    {
+      "id": "boardgame-design-004",
+      "task_input": "我有一个卡牌+骰子的推手气游戏，某个策略胜率太高。请给我一套平衡性测试计划。",
+      "expected_behavior": "Route to playtest and balance mode, define metrics, test groups, hypotheses, change log, and decision thresholds.",
+      "rubric": "The response must include measurable balance metrics and decision thresholds.",
+      "difficulty": "medium",
+      "category": "balance-testing",
+      "source": "golden",
+      "split": "validation"
+    },
+    {
+      "id": "boardgame-design-005",
+      "task_input": "我桌游机制已经稳定了，但美术方向不清楚，也不知道怎么和画师沟通。帮我整理一个美术brief。",
+      "expected_behavior": "Route to art and production mode, separate functional readability, style direction, component priority, art brief, graphic design brief, copyright, revision, and handoff risks.",
+      "rubric": "The response must separate art direction from functional readability and production handoff risks.",
+      "difficulty": "medium",
+      "category": "art-production",
+      "source": "golden",
+      "split": "holdout"
+    },
+    {
+      "id": "boardgame-design-006",
+      "task_input": "帮我规划一个从稳定原型到Kickstarter众筹的路线，包含BGG和评测口碑。",
+      "expected_behavior": "Route to publishing and marketing mode, assess readiness, and output staged roadmap with prerequisites, risks, community, reviews, and next actions.",
+      "rubric": "The response must assess readiness before proposing a Kickstarter roadmap.",
+      "difficulty": "hard",
+      "category": "publishing-marketing",
+      "source": "golden",
+      "split": "validation"
+    },
+    {
+      "id": "boardgame-design-007",
+      "task_input": "帮我做一节90分钟桌游设计课，主题是从灵感到纸笔原型。",
+      "expected_behavior": "Route to teaching mode, define learner output, activities, timing, examples, and assessment rubric.",
+      "rubric": "The response must include learner output, timing, activities, and assessment rubric.",
+      "difficulty": "medium",
+      "category": "teaching",
+      "source": "golden",
+      "split": "holdout"
+    },
+    {
+      "id": "boardgame-design-008",
+      "task_input": "我不是做桌游，是想做城市更新参与式游戏化方案",
+      "expected_behavior": "Recognize that a full urban renewal gamification project should route to gamified-urban-renewal-design unless the deliverable is only a tabletop game.",
+      "rubric": "The response must route non-tabletop urban renewal gamification work to gamified-urban-renewal-design.",
+      "difficulty": "easy",
+      "category": "handoff-gamified-urban-renewal",
+      "source": "golden",
+      "split": "routing"
+    }
+  ]
+}

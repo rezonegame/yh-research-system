@@ -100,6 +100,27 @@
 
 ---
 
+## 评测数据集
+
+| 字段 | 值 |
+|------|-----|
+| **Schema** | `.claude/skills/_shared/schemas/eval-dataset-schema.md` |
+| **test-prompts.json** | [已创建 / 需补充 / 不适用] |
+| **Train examples** | [数量 + 覆盖点] |
+| **Validation examples** | [数量 + 覆盖点] |
+| **Holdout examples** | [数量 + 覆盖点；不得用于候选生成] |
+| **Routing examples** | [数量 + 相邻技能] |
+
+### 覆盖检查
+
+- [ ] 至少 1 个触发案例
+- [ ] 至少 1 个非触发或 handoff 案例
+- [ ] 至少 1 个 failure-mode 案例
+- [ ] 至少 1 个 holdout 案例
+- [ ] 如与其他技能重叠，至少 1 个 routing regression 案例
+
+---
+
 ## 自博弈记录（创建后填充）
 
 | 字段 | 值 |

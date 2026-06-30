@@ -1,0 +1,29 @@
+{
+  "run_id": "20260630-1731",
+  "target_skill": "lecture-slides",
+  "baseline_candidate": "A",
+  "max_growth": 0.2,
+  "candidates": {
+    "A": {
+      "structure": "pass",
+      "growth": "0.0%",
+      "status": "valid"
+    },
+    "B": {
+      "structure": "pass",
+      "growth": "17.3%",
+      "status": "valid"
+    },
+    "AB": {
+      "structure": "pass",
+      "growth": "19.9%",
+      "status": "valid"
+    }
+  },
+  "active_replacement": {
+    "candidate": "B",
+    "structure": "pass",
+    "growth": "19.3%",
+    "status": "valid"
+  }
+}

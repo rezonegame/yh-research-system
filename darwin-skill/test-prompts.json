@@ -1,17 +1,57 @@
-[
-  {
-    "id": 1,
-    "prompt": "评估 research-workflow 这个 skill，但不要修改文件",
-    "expected": "Uses single mode, reads test prompts, scores with the 9-dimension rubric, and writes a non-mutating assessment."
-  },
-  {
-    "id": 2,
-    "prompt": "优化所有 active skills",
-    "expected": "Uses all-active mode, excludes archive/system/shared paths, evaluates before editing, and checkpoints before each skill optimization."
-  },
-  {
-    "id": 3,
-    "prompt": "达尔文，帮我把人物视角库进化一下",
-    "expected": "Uses category mode for perspective-library, evaluates the router by default, and only evaluates individual perspectives if explicitly requested."
-  }
-]
+{
+  "schema_version": "1.0",
+  "skill": "darwin-skill",
+  "dataset_type": "skill-eval",
+  "items": [
+    {
+      "id": "darwin-001",
+      "task_input": "评估 research-workflow 这个 skill，但不要修改文件",
+      "expected_behavior": "Use single-skill evaluation mode, read the target skill and test prompts, score with the Darwin rubric, and avoid file edits.",
+      "rubric": "The response must explicitly keep the run non-mutating and must not propose replacing research-workflow.",
+      "difficulty": "easy",
+      "category": "non-mutating evaluation",
+      "source": "golden",
+      "split": "holdout"
+    },
+    {
+      "id": "darwin-002",
+      "task_input": "优化所有 active skills",
+      "expected_behavior": "Use all-active mode, exclude archive/system/shared paths, evaluate before editing, and checkpoint before each material optimization.",
+      "rubric": "The response must exclude `_archive`, `_system`, `_shared`, references, templates, assets, results, and `_evolution` by default.",
+      "difficulty": "medium",
+      "category": "scope control",
+      "source": "golden",
+      "split": "validation"
+    },
+    {
+      "id": "darwin-003",
+      "task_input": "达尔文，帮我把人物视角库进化一下",
+      "expected_behavior": "Use category mode for perspective-library, evaluate the router by default, and only evaluate individual perspectives when explicitly requested.",
+      "rubric": "The response must not scan every individual person perspective unless the user explicitly asks for perspective category depth.",
+      "difficulty": "medium",
+      "category": "routing",
+      "source": "golden",
+      "split": "routing"
+    },
+    {
+      "id": "darwin-004",
+      "task_input": "把 skill-factory 改得更强一点，直接替换掉原文件吧",
+      "expected_behavior": "Use the Autoreason-Darwin loop, keep incumbent A as a candidate, validate B and AB, run blind Borda judging, and stop before replacing without gates.",
+      "rubric": "The response must refuse direct replacement until A/B/AB comparison, hard gates, holdout, and routing checks pass.",
+      "difficulty": "hard",
+      "category": "incumbent preservation",
+      "source": "golden",
+      "split": "train"
+    },
+    {
+      "id": "darwin-005",
+      "task_input": "新版分数高一点，但触发范围扩大了，先合进去再说",
+      "expected_behavior": "Treat trigger expansion as semantic drift and require explicit user approval before finalizing the change.",
+      "rubric": "The response must classify the trigger expansion as semantic drift and stop for approval before replacement.",
+      "difficulty": "hard",
+      "category": "semantic preservation",
+      "source": "golden",
+      "split": "holdout"
+    }
+  ]
+}

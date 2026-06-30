@@ -1,13 +1,47 @@
-[
-  {
-    "id": 1,
-    "prompt": "把这套Beamer课件转成Quarto并检查图表",
-    "expected": "Uses conversion, TikZ extraction, bibliography, and QA modules."
-  },
-  {
-    "id": 2,
-    "prompt": "编译这份LaTeX讲义并修复引用问题",
-    "expected": "Runs compile workflow and bibliography validation."
-  }
-]
-
+{
+  "schema_version": "1.0",
+  "skill": "lecture-slides",
+  "dataset_type": "skill-eval",
+  "items": [
+    {
+      "id": "lecture-slides-001",
+      "task_input": "把这套Beamer课件转成Quarto并检查图表",
+      "expected_behavior": "Use conversion, TikZ extraction, bibliography, figure, and QA modules as appropriate.",
+      "rubric": "The response must include both conversion and QA concerns, not only format conversion.",
+      "difficulty": "medium",
+      "category": "conversion-qa",
+      "source": "golden",
+      "split": "holdout"
+    },
+    {
+      "id": "lecture-slides-002",
+      "task_input": "编译这份LaTeX讲义并修复引用问题",
+      "expected_behavior": "Run or plan compile workflow and bibliography validation.",
+      "rubric": "The response must include bibliography validation rather than only compiling LaTeX.",
+      "difficulty": "medium",
+      "category": "compile-bibliography",
+      "source": "golden",
+      "split": "train"
+    },
+    {
+      "id": "lecture-slides-003",
+      "task_input": "帮我审查这套课件有没有教学和视觉问题",
+      "expected_behavior": "Recognize this as quality review and hand off to evaluation-workflow when the request is only audit/critique.",
+      "rubric": "The response must route pure slide audit or critique to evaluation-workflow.",
+      "difficulty": "easy",
+      "category": "handoff-evaluation",
+      "source": "golden",
+      "split": "routing"
+    },
+    {
+      "id": "lecture-slides-004",
+      "task_input": "帮我把研究报告做成一套可讲授的90分钟课程幻灯片",
+      "expected_behavior": "Treat as slide creation/adaptation, identify learning objectives, structure, timing, visual assets, references, and delivery checks.",
+      "rubric": "The response must define learning objectives and timing before slide production details.",
+      "difficulty": "medium",
+      "category": "slide-production",
+      "source": "golden",
+      "split": "validation"
+    }
+  ]
+}
